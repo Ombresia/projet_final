@@ -1,6 +1,6 @@
 <?php
 // Inclusion du header
-require_once('header.php');
+require_once('views/page_top.php');
 // Nom de la page
 $page_name = 'Portrait de l\'artiste peintre';
 ?>
@@ -14,4 +14,4 @@ $page_name = 'Portrait de l\'artiste peintre';
 
 <?php
 // Inclusion du footer
-require_once('footer.php');
+require_once('views/footer.php');

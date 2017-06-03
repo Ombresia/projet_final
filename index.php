@@ -1,6 +1,6 @@
 <?php
 // Inclusion du header
-require_once('header.php');
+require_once('views/page_top.php');
 // Nom de la page
 $page_name = 'L\'art de la peinture sur vitre';
 ?>
@@ -14,4 +14,4 @@ $page_name = 'L\'art de la peinture sur vitre';
 
 <?php
 // Inclusion du footer
-require_once('footer.php');
+require_once('views/footer.php');
