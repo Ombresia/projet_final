@@ -1,11 +1,17 @@
 TO DO LIST :
 
 - Header :
-    - rédiger la meta description
+    - rédiger les meta descriptions
     - faire le shortcut icon
+    - fonctionnalite de recherche dans les oeuvres
+    -
 
 - Arrow top
-- Base de données
+
+- Base de données :
+     x ecrire les tables et les relations
+     - remplir la bd
+     -
 
 - Galery :
     - ajouter les alt aux img
@@ -13,3 +19,32 @@ TO DO LIST :
     - ajouter les descriptions
     - ajouter les dimensions
     - ajouter un bouton pour liker
+    -
+
+- Administration :
+    - ajouter un hover sur les balises a et button
+    - integrer l'editeur de texte
+    - coder les fonctionnalites ajouter, modifier, supprimer par categorie de la main_nav
+    -
+
+- Photoshop :
+    - travailler les photos originales et les thumbs
+    -
+
+- Les pages :
+    - acceuil
+    - l'artiste
+    - la galerie
+    - le detail d'une oeuvre :
+        - ajouter les favoris
+    - le blog
+    - le detail d'un article
+    - contact
+
+- SEO :
+    - ajouter les microdonnees aux oeuvres
+    - soigner les titres h1, h2, ...
+    -
+
+-
+-
