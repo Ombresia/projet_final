@@ -1,8 +1,9 @@
 <?php
-// Inclusion du header
-require_once('views/page_top.php');
 // Nom de la page
 $page_name = 'Visitez ma galerie';
+// Inclusion du header
+require_once('views/page_top.php');
+
 ?>
 
     <!-- Page de la galerie -->

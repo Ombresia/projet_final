@@ -1,16 +1,17 @@
-/**
- * main.js
- * http://www.codrops.com
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright 2015, Codrops
- * http://www.codrops.com
- */
 ;(function(window) {
 
     'use strict';
+
+    /**
+     * Scripts de la page GALERIE pour afficher le detail d'une oeuvre
+     * http://www.codrops.com
+     *
+     * Licensed under the MIT license.
+     * http://www.opensource.org/licenses/mit-license.php
+     *
+     * Copyright 2015, Codrops
+     * http://www.codrops.com
+     */
 
     var support = { transitions: Modernizr.csstransitions },
         // transition end event name
@@ -249,7 +250,7 @@
      */
     GridFx.prototype._setOriginal = function(src) {
         if( !src ) {
-            this.originalImg = document.createElement('img');
+            this.originalImg = document.createElement('img'); // this.originalImg = document.createElement('img');
             this.originalImg.className = 'original';
             this.originalImg.style.opacity = 0;
             this.originalImg.style.maxWidth = 'calc(' + parseInt(Math.abs(this.options.imgPosition.x)*100) + 'vw - ' + this.options.pagemargin + 'px)';
@@ -353,5 +354,18 @@
     };
 
     window.GridFx = GridFx;
+
+
+
+    /* Tiny MCE */
+    tinymce.init({
+        selector: 'textarea',  // change this value according to your HTML
+        auto_focus: 'element1',
+        plugins: ['image imagetools'],
+        language: 'fr_FR'
+    });
+
+
+
 
 })(window);

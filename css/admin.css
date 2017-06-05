@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, nav, section {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+html {
+    font-size: 18px;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    color: #2c3e50;
+}
+
+/***********************************************************************************/
+/* Header */
+/***********************************************************************************/
+
+header {
+    height: 100px;
+    border-bottom: 1px solid #ecf0f1;
+}
+#sec_nav {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+#logo {
+    float: left;
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    padding-top: 25px;
+    border-right: 1px solid #ecf0f1;
+    font-family: 'Tangerine', cursive;
+    font-size: 2.5rem;
+    text-align: center;
+}
+#sec_nav > div {
+    float: left;
+    width: 75%;
+    padding-top: 25px;
+}
+#sec_nav button {
+    float: right;
+}
+#sec_nav button:first-child {
+    margin: 0 20px;
+}
+/* Menu principal */
+#main_nav {
+    float: left;
+    display: inline-block;
+    width: 25%;
+    background-color: #ecf0f1;
+}
+#main_nav ul {
+    list-style-type: none;
+}
+#main_nav li {
+    margin: 1.2rem;
+}
+#main_nav li > a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #2c3e50;
+}
+
+/* Boutons */
+button {
+    padding: 10px 20px;
+}
+button:hover {
+    cursor: pointer;
+}
+button > i {
+    padding-right: 20px;
+}
+#main_nav button {
+    width: 315px;
+    text-align: left;
+}
+
+/***********************************************************************************/
+/* L'interface d'administration */
+/***********************************************************************************/
+
+#container {
+    float: left;
+    display: inline-block;
+    width: 75%;
+}
+h1 {
+    text-align: center;
+    position: relative;
+}
+h1:after {
+    content: "";
+    height: 1px;
+    width: 325px;
+    background-color: #2c3e50;
+    position: absolute;
+    bottom: -24px;
+    left: 38.65%;
+}
+#wrapper {
+    padding: 50px;
+}
+
+/* Les sections */
+#welcome {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Media query - Site responsive */
+
+@media only screen and (max-width: 1200px) {
+}
+
+/* END media query */
+
+/* Media query SMALL DESKTOPS */
+@media only screen and (max-width: 992px) {
+}
+
+/* END media query */
+
+/* Media query LARGE MOBILE ET SMALL TABLETS */
+@media only screen and (max-width: 768px) {
+}
+
+/* END media query */
+
+/* Media query SMALL DEVICES */
+@media only screen and (max-width: 640px) {
+}
+
+/* END media query */
