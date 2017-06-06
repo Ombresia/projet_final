@@ -25,6 +25,7 @@ require_once('common/defines.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="scripts/plugins/tinymce/tinymce.min.js?apiKey=oki1g7dc3hafn6shl04zx9l19qwu9h2mj1es03uf13sp3lvu"></script>
     <script src="scripts/modernizr-custom.js"></script>
 </head>
 

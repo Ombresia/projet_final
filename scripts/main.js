@@ -407,14 +407,14 @@ console.log('Hello');
         if (!firstname_valid) {
             form_valid = false;
             input_firstname.addClass('error');
-            if (!input_firstname.next().is('p.error_msg')) {
-                input_firstname.parent().siblings('i').after('<p class="error_msg">Le prénom doit au moins contenir 1 caractère valide.</p>');
+            if (!input_firstname.parent().siblings('span').next().is('p.error_msg')) {
+                input_firstname.parent().siblings('span').after('<p class="error_msg">Le prénom doit au moins contenir 1 caractère valide.</p>');
             }
         } else {
             input_firstname.removeClass('error');
             form_valid = true;
-            if (input_firstname.parent().siblings('i').next().is('p.error_msg')) {
-                input_firstname.parent().siblings('i').next().remove();
+            if (input_firstname.parent().siblings('span').next().is('p.error_msg')) {
+                input_firstname.parent().siblings('span').next().remove();
             }
         }
 
@@ -426,14 +426,14 @@ console.log('Hello');
         if (!nom_valide) { // si la valeur du champ est inferieure a 1 caractere
             form_valid = false;
             input_lastname.addClass('error');
-            if (!input_lastname.next().is('p.error_msg')) {
-                input_lastname.parent().siblings('i').after('<p class="error_msg">Le nom doit au moins contenir 1 caractere valide.</p>');
+            if (!input_lastname.parent().siblings('span').next().is('p.error_msg')) {
+                input_lastname.parent().siblings('span').after('<p class="error_msg">Le nom doit au moins contenir 1 caractere valide.</p>');
             }
         } else {
             input_lastname.removeClass('error');
             form_valid = true;
-            if (input_lastname.next().is('p.error_msg')) {
-                input_lastname.next().remove();
+            if (input_lastname.parent().siblings('span').next().is('p.error_msg')) {
+                input_lastname.parent().siblings('span').next().remove();
             }
         }
 
@@ -447,14 +447,14 @@ console.log('Hello');
         if (phone_valid == false) { // si la valeur du champ n'est pas valide < a 1 caractere
             form_valid = false;
             input_phone.addClass('error');
-            if (!input_phone.next().is('p.error_msg')) {
-                input_phone.parent().siblings('i').after('<p class="error_msg">Le telephone doit etre au format XXX-XXX-XXXX.</p>');
+            if (!input_phone.parent().siblings('span').next().is('p.error_msg')) {
+                input_phone.parent().siblings('span').after('<p class="error_msg">Le telephone doit etre au format XXX-XXX-XXXX.</p>');
             }
         } else {
             input_phone.removeClass('error');
             form_valid = true;
-            if (input_phone.next().is('p.error_msg')) {
-                input_phone.next().remove();
+            if (input_phone.parent().siblings('span').next().is('p.error_msg')) {
+                input_phone.parent().siblings('span').next().remove();
             }
         }
 
@@ -468,14 +468,14 @@ console.log('Hello');
         if (email_valide == false) { // si la valeur du champ n'est pas valide < a 1 caractere
             form_valid = false;
             input_email.addClass('error');
-            if (!input_email.next().is('p.error_msg')) {
-                input_email.parent().siblings('i').after('<p class="error_msg">Le courriel doit au moins contenir le caractere @.</p>');
+            if (!input_email.parent().siblings('span').next().is('p.error_msg')) {
+                input_email.parent().siblings('span').after('<p class="error_msg">Le courriel doit au moins contenir le caractere @.</p>');
             }
         } else {
             input_email.removeClass('error');
             form_valid = true;
-            if (input_email.next().is('p.error_msg')) {
-                input_email.next().remove();
+            if (input_email.parent().siblings('span').next().is('p.error_msg')) {
+                input_email.parent().siblings('span').next().remove();
             }
         }
 
@@ -488,7 +488,7 @@ console.log('Hello');
         }
     }
 
-    $('#submit').on('click', function () {
+    $('#contact_submit').on('click', function () {
         valider_formulaire();
         console.log('Je dois valider');
     });
