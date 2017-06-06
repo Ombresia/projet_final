@@ -20,11 +20,11 @@ require_once('views/page_top.php');
                 <div class="inner">
                     <div class="photo">
                         <h3>Titre</h3>
-                        <img src="images/image_slider_1.jpg" alt=""/>
+                        <img src="images/original/image_slider_1.jpg" alt=""/>
                     </div>
                     <div class="photo">
                         <h3>Titre</h3>
-                        <img src="images/image_slider_2.jpg" alt=""/>
+                        <img src="images/original/image_slider_2.jpg" alt=""/>
                     </div>
                     <div class="photo">
                         <h3>Titre</h3>
@@ -44,7 +44,7 @@ require_once('views/page_top.php');
         </div>
     </section>
     <!-- Fin slider -->
-    <main>
+    <main class="row">
         <section class="col-12 col-m-12 col-s-12">
             <div class="titre_main">
                 <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>
@@ -72,14 +72,25 @@ require_once('views/page_top.php');
                 <h2>Mes dernières oeuvres</h2>
             </div>
 
-            <figure class="col-3 col-m-6 col-s-12"><img src="#" alt="">
-                <h3>Titre de l'oeuvre</h3></figure>
+            <figure class="col-2 col-m-4 col-s-12">
+                <img src="images/thumbs/5.jpg" alt="">
+                <h3>Titre de l'oeuvre</h3>
+            </figure>
 
-            <figure class="col-3 col-m-6 col-s-12"><img src="#" alt="">
-                <h3>Titre de l'oeuvre</h3></figure>
+            <figure class="col-2 col-m-4 col-s-12">
+                <img src="images/thumbs/2.jpg" alt="">
+                <h3>Titre de l'oeuvre</h3>
+            </figure>
 
-            <figure class="col-3 col-m-6 col-s-12"><img src="#" alt="">
-                <h3>Titre de l'oeuvre</h3></figure>
+            <figure class="col-2 col-m-4 col-s-12">
+                <img src="images/thumbs/3.jpg" alt="">
+                <h3>Titre de l'oeuvre</h3>
+            </figure>
+
+            <figure class="col-2 col-m-4 col-s-12">
+                <img src="images/thumbs/4.jpg" alt="">
+                <h3>Titre de l'oeuvre</h3>
+            </figure>
 
 
         </section>
