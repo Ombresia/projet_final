@@ -38,9 +38,9 @@ require_once('common/defines.php');
 
     <!-- Logo -->
     <div id="logo"><p>Christine Ngoy</p>
-    <p>Artiste peintre sur vitre</p></div>
+        <p>Artiste peintre sur vitre</p></div>
     <!-- Navigation principale -->
-    <nav>
+    <nav id="menu_normal">
         <ul>
             <li>
                 <a href="../index.php">Accueil</a>
@@ -56,5 +56,28 @@ require_once('common/defines.php');
             </li>
         </ul>
     </nav>
+
+    <div class="mobile-nav">
+        <div class="menu-btn" id="menu-btn">
+            <i class="fa fa-bars fa-3x" aria-hidden="true"></i>
+        </div>
+
+        <div class="responsive-menu">
+            <ul>
+                <li>
+                    <a href="../index.php">Accueil</a>
+                </li>
+                <li>
+                    <a href="../artiste.php">L'artiste</a>
+                </li>
+                <li>
+                    <a href="../galerie.php">La galerie</a>
+                </li>
+                <li>
+                    <a href="../contact.php">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
 </header>

@@ -11,7 +11,7 @@
 
     <div>
         <!-- Recherche -->
-        <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-search fa-2x ico_color_search" aria-hidden="true"></i>
         <!-- Favoris -->
-        <i class="fa fa-heart fa-2x" aria-hidden="true"></i></li></div>
+        <i class="fa fa-heart fa-2x ico_color_fav" aria-hidden="true"></i></li></div>
 </nav>

@@ -143,6 +143,7 @@ header {
     -ms-transition: all 0.2s ease-in;
     -o-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
+    cursor: pointer;
 }
 
 #second_nav .ico_color_insta:hover {
@@ -152,6 +153,27 @@ header {
     -ms-transition: all 0.2s ease-in;
     -o-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+
+#second_nav .ico_color_fav:hover {
+    color: #e6b800;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
+}
+
+#second_nav .ico_color_search:hover {
+    color: #0C55B3;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    cursor: pointer;
 }
 
 /*************************************************************************************************************************************/
@@ -183,6 +205,7 @@ header nav ul {
     display: flex;
     justify-content: center;
     padding: 10px;
+    border-top: 1px solid #999999;
 }
 
 header nav li {
@@ -195,6 +218,10 @@ header nav li:first-child {
 
 header nav a {
     padding: 20px;
+}
+
+.mobile-nav {
+    display: none;
 }
 
 /*************************************************************************************************************************************/
@@ -311,14 +338,11 @@ main {
     line-height: 1.5em;
 }
 
-
-
 /*************************************************************************************************************************************/
 /*  INDEX  */
 /*****************************************************************************/
 
 /************ Events  *********/
-
 
 main .titre_main {
     margin-top: 40px;
@@ -360,9 +384,7 @@ main .event_lieu span, main .event_lieu h3 {
 /************ Dernières oeuvres  *********/
 
 main figure {
-    border: 1px solid #000;
-    background: lightgrey;
-    height: 250px;
+    box-shadow: 0 0 10px #d3dcde;
     display: flex;
     align-items: flex-end;
     position: relative;
@@ -372,7 +394,7 @@ main figure {
 
 main figure h3 {
     opacity: 0;
-    background: rgb(236, 240, 241);
+    background: rgba(236, 240, 241, 0.5);
     display: block;
     text-align: center;
     padding: 20px 0 20px 0;
@@ -385,7 +407,7 @@ main figure h3 {
     position: absolute;
 }
 
-main figure h3:hover {
+main figure img:hover + h3 {
     opacity: 1;
 
 }
@@ -644,6 +666,7 @@ main figure h3:hover {
     }
 }
 
+<<<<<<< HEAD
 /*************************************************************************************************************************************/
 /* PAGE Contact */
 /*************************************************************************************************************************************/
@@ -840,72 +863,11 @@ main figure h3:hover {
 
 /* SYSTEME DE GRILLES */
 
+
 /*************************************************************************************************************************************/
 /* SMALL DEVICES - Version Mobile - Viewport until 768px */
 /*************************************************************************************************************************************/
-/* on aligne les colonnes les unes à côté des autres avec la propriété float */
-[class*="col-"] {
-    float: left;
-}
-
-/* chaque rangée de colonnes doit être enveloppée dans une div de class "row". on applique un clear:both sur chaque row afin d'annuler l'effet de float et éviter que les éléments suivants remontent et entourent le "row" */
-.row:after {
-    content: "";
-    clear: both;
-    display: block;
-}
-
-/*************************************************************************************************************************************/
-/* MEDIUM DEVICES - Version Tablet - Viewport until 960px */
-/*************************************************************************************************************************************/
-@media only screen and (max-width: 769px) {
-    .col-m-1 {
-        width: 8.33%;
-    }
-
-    .col-m-2 {
-        width: 16.66%;
-    }
-
-    .col-m-3 {
-        width: 25%;
-    }
-
-    .col-m-4 {
-        width: 33.33%;
-    }
-
-    .col-m-5 {
-        width: 41.66%;
-    }
-
-    .col-m-6 {
-        width: 50%;
-    }
-
-    .col-m-7 {
-        width: 58.33%;
-    }
-
-    .col-m-8 {
-        width: 66.66%;
-    }
-
-    .col-m-9 {
-        width: 75%;
-    }
-
-    .col-m-10 {
-        width: 83.33%;
-    }
-
-    .col-m-11 {
-        width: 91.66%;
-    }
-
-    .col-m-12 {
-        width: 100%;
-    }
+@media only screen and (max-width: 768px) {
 
     /* on aligne les colonnes les unes à côté des autres avec la propriété float */
     [class*="col-"] {
@@ -918,8 +880,12 @@ main figure h3:hover {
         clear: both;
         display: block;
     }
+
 }
 
+/*************************************************************************************************************************************/
+/* MEDIUM DEVICES - Version Tablet - Viewport until 960px */
+/*************************************************************************************************************************************/
 @media only screen and (max-width: 960px) {
     .col-m-1 {
         width: 8.33%;
@@ -967,6 +933,29 @@ main figure h3:hover {
 
     .col-m-12 {
         width: 100%;
+    }
+
+    /********** MAIN ***********/
+    main {
+        padding: 20px;
+        width: 100%;
+    }
+
+    /********** INDEX ***********/
+    main figure {
+        box-shadow: none;
+
+    }
+
+    main figure img { /* On centre les images dans leur colonne*/
+        display: block;
+        margin: auto;
+
+    }
+
+    main figure h3 {
+        display: none;
+
     }
 
 }
@@ -1024,4 +1013,125 @@ main figure h3:hover {
         float: none;
         padding: 0 15px;
     }
+
+    /************* Nav principale ************/
+
+
+    #menu_normal {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: block;
+        background: #ECF0F1;
+        cursor: pointer;
+    }
+
+    /*on enlève le float sur les liens du menu et on applique une largeur de 100% */
+    header li {
+        float: none;
+        width: 100%;
+        border-left: 0 solid #fff !important;
+        /*on élimine la bordure gauche*/
+        border-top: 1px solid #FFF;
+        list-style: none;
+    }
+
+    /*on justifie à gauche les liens */
+    .responsive-menu li a {
+        display: block;
+        height: 50px;
+
+        text-align: left;
+        width: 100%;
+
+        text-decoration: none;
+        padding: 15px;
+    }
+
+    .responsive-menu li:hover {
+        background: #d3dcde;
+    }
+
+
+    .menu-btn, .menu-btn-contact, .menu-btn-ml {
+        padding: 6px;
+        display: flex;
+        align-items: flex-end;
+
+    }
+
+    /*on style le hamburger*/
+    .menu-btn span {
+        display: block;
+        /*les span se placent les uns sous les autres*/
+        width: 50px;
+        /*largeur de la rayure*/
+        height: 3px;
+        /*hauteur de la rayure*/
+        margin: 8px 0;
+        /*on les sépare*/
+        background: #170B0B;
+        /*couleur des rayures*/
+        z-index: 99;
+    }
+
+    /*on cache le menu par défaut*/
+    .responsive-menu {
+        display: none;
+    }
+
+    /*on affiche le menu qd l'utilisateur clique sur le hamburger, on ajoute la classe expand en jQuery*/
+    .expand {
+        display: block !important;
+    }
+
+
+
+
+
+    /********** Main  ***********/
+    main section {
+        padding: 0;
+    }
+
+    figure {
+        margin: 0;
+    }
+
+    /********** FOOTER  ***********/
+    #footer_base {
+        display: none;
+    }
+
+    .mobile-footer {
+        display: block;
+        background: #ECF0F1;
+        cursor: pointer;
+    }
+
+    .menu-btn-ml h4, .menu-btn-contact h4 {
+        margin-left:10px;
+    }
+
+    /*on cache le menu par défaut*/
+    .responsive-ml,  .responsive-contact {
+        display: none;
+    }
+
+    /*on affiche le menu qd l'utilisateur clique sur le hamburger, on ajoute la classe expand en jQuery*/
+    .expand {
+        display: block !important;
+
+    }
+
+    .fa + .expand  {
+        transform: rotateX(180deg);
+
+    }
+
+    
+
 }
+    
+    
