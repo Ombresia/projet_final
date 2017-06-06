@@ -182,10 +182,12 @@ require_once('views/page_top.php');
         </section>
         <!-- /container -->
     </main>
-    <script src="scripts/imagesloaded.pkgd.min.js"></script>
-    <script src="scripts/masonry.pkgd.min.js"></script>
-    <script src="scripts/classie.js"></script>
-    <script src="scripts/main.js"></script>
+
+    <?php
+    // Inclusion des scripts js
+    require_once ('views/js_scripts.php');
+    ?>
+
     <script>
         (function () {
             var support = {transitions: Modernizr.csstransitions},

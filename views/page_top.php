@@ -1,4 +1,8 @@
 <?php
+// Demarrage d'une session
+if (!isset($_SESSION)) {
+    session_start();
+}
 // Inclusion des variables et constantes
 require_once('common/defines.php');
 ?>

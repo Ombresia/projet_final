@@ -9,33 +9,43 @@ require_once('views/page_top.php');
     <!-- Page du formulaire de contact -->
     <body>
         <main>
-            <h1>Me contacter</h1>
+            <h2>Me contacter</h2>
             <section>
                 <form action="contact.php" method="post" novalidate="novalidate">
                     <ul>
-                        <li>
-                            <label for="first_name">Prénom *</label>
-                            <input type="text" id="first_name" name="first_name" required="required" autofocus="autofocus"/>
+                        <li class="input input--manami">
+                            <input type="text" id="first_name" name="first_name" required="required" class="input__field input__field--manami"/>
+                            <label for="first_name" class="input__label input__label--manami">
+                                <span class="input__label-content input__label-content--manami">Prénom (*)</span>
+                            </label>
                             <i class="fa fa-question-circle" aria-hidden="true"></i>
                         </li>
-                        <li>
-                            <label for="name">Nom *</label>
-                            <input type="text" id="name" name="name" required="required"/>
+                        <li class="input input--manami">
+                            <input type="text" id="lastname" name="lastname" required="required" class="input__field input__field--manami"/>
+                            <label for="lastname" class="input__label input__label--manami">
+                                <span class="input__label-content input__label-content--manami">Nom (*)</span>
+                            </label>
                             <i class="fa fa-question-circle" aria-hidden="true"></i>
                         </li>
-                        <li>
-                            <label for="phone">Téléphone</label>
-                            <input type="tel" id="phone" name="phone"/>
+                        <li class="input input--manami">
+                            <input type="tel" id="phone" name="phone" class="input__field input__field--manami"/>
+                            <label for="phone" class="input__label input__label--manami">
+                                <span class="input__label-content input__label-content--manami">Téléphone</span>
+                            </label>
                             <i class="fa fa-question-circle" aria-hidden="true"></i>
                         </li>
-                        <li>
-                            <label for="email">Courriel *</label>
-                            <input type="email" id="email" name="email" required="required"/>
+                        <li class="input input--manami">
+                            <input type="email" id="email" name="email" required="required" class="input__field input__field--manami"/>
+                            <label for="email" class="input__label input__label--manami">
+                                <span class="input__label-content input__label-content--manami">Courriel (*)</span>
+                            </label>
                             <i class="fa fa-question-circle" aria-hidden="true"></i>
                         </li>
-                        <li>
-                            <label for="subject">Sujet *</label>
-                            <input type="text" id="subject" name="subject" required="required"/>
+                        <li class="input input--manami">
+                            <input type="text" id="subject" name="subject" required="required" class="input__field input__field--manami"/>
+                            <label for="subject" class="input__label input__label--manami">
+                                <span class="input__label-content input__label-content--manami">Sujet (*)</span>
+                            </label>
                             <i class="fa fa-question-circle" aria-hidden="true"></i>
                         </li>
                         <li>
@@ -46,12 +56,18 @@ require_once('views/page_top.php');
                             <textarea id="message" name="message" required="required"></textarea>
                         </li>
                         <li>
-                            <input type="submit"/>
+                            <input type="submit" id="contact_submit" name="contact_submit" value="Envoyer"/>
                         </li>
                     </ul>
                 </form>
             </section>
         </main>
+
+        <?php
+        // Inclusion des scripts js
+        require_once ('views/js_scripts.php');
+        ?>
+
     </body>
 
 <?php
