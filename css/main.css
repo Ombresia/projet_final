@@ -1,4 +1,4 @@
-/* CSS - Site responsive - Mobile First - Systeme de Grille */
+/* CSS - Site responsive - Desktop First - Systeme de Grille */
 
 /* CSS - RESET */
 
@@ -49,6 +49,345 @@ button:focus {
     width: 0;
     height: 0;
     pointer-events: none;
+}
+
+body {
+    background-color: #f8f8f8;
+    font-size: 14px;
+
+}
+
+header {
+    background-color: #fff;
+}
+
+/*************************************************************************************************************************************/
+/* GRILLE DESKTOP */
+/*************************************************************************************************************************************/
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+/* on aligne les colonnes les unes à côté des autres avec la propriété float */
+[class*="col-"] {
+    float: left;
+}
+
+/* chaque rangée de colonnes doit être enveloppée dans une div de class "row". on applique un clear:both sur chaque row afin d'annuler l'effet de float et éviter que les éléments suivants remontent et entourent le "row" */
+.row:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/*************************************************************************************************************************************/
+/* Navigation secondaire */
+/*************************************************************************************************************************************/
+
+#second_nav {
+    display: flex;
+    justify-content: space-around;
+    background: #ecf0f1;
+    padding: 2px 0 2px 0;
+}
+
+#second_nav .ico_color_fb:hover {
+    color: #3B5998;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+#second_nav .ico_color_insta:hover {
+    color: #EA5149;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+/*************************************************************************************************************************************/
+/* Logo */
+/*****************************************************************************/
+#logo {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo p {
+    font-family: 'Tangerine', cursive;
+    font-size: 48px;
+    padding: 20px 0 0 0;
+}
+
+#logo p:nth-child(2) {
+    font-size: 34px;
+    padding: 0 0 20px 0;
+}
+
+/*************************************************************************************************************************************/
+/* Navigation principale */
+/*****************************************************************************/
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+header nav li {
+    border-left: 1px solid #000000;
+}
+
+header nav li:first-child {
+    border: none;
+}
+
+header nav a {
+    padding: 20px;
+}
+
+/*************************************************************************************************************************************/
+/* FOOTER */
+/*************************************************************************************************************************************/
+footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ECF0F1;
+    padding: 20px;
+}
+
+footer h4 {
+    border-bottom: 1px solid #000;
+    padding: 10px 0 10 0;
+    display: inline-block;
+    width: 90%;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+
+}
+
+/*************************************************************************************************************************************/
+/* Slider CSS */
+/*****************************************************************************/
+
+#overflow {
+    width: 100%;
+    overflow: hidden;
+}
+
+.inner {
+    width: 500%;
+}
+
+.photo {
+    width: 20%;
+    float: left;
+    position: relative;
+}
+
+.photo h3 {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: #FFFFFF;
+    display: none; /*A retirer pour faire apparaitre la légende de la photo*/
+}
+
+.photo img {
+    width: 100%;
+}
+
+input {
+    display: none;
+}
+
+#slider1:checked ~ #slides .inner {
+    margin-left: 0;
+}
+
+#slider2:checked ~ #slides .inner {
+    margin-left: -100%;
+}
+
+#slider3:checked ~ #slides .inner {
+    margin-left: -200%;
+}
+
+#slider4:checked ~ #slides .inner {
+    margin-left: -300%;
+}
+
+#slider5:checked ~ #slides .inner {
+    margin-left: -400%;
+}
+
+/* on applique une transition sur la div inner */
+
+#slides .inner {
+    transition: all 1s;
+}
+
+label {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #d3dcde;
+    cursor: pointer;
+}
+
+#active {
+    display: flex;
+    justify-content: center;
+
+}
+
+#active label {
+    margin: 5px 10px 5px 10px;
+}
+
+/*************************************************************************************************************************************/
+/*  MAIN  */
+/***********************************/
+
+main {
+    background: #fff;
+    display: flex;
+    border: 2px solid #ecf0f1;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 80px 20px 80px;
+    line-height: 1.5em;
+}
+
+
+
+/*************************************************************************************************************************************/
+/*  INDEX  */
+/*****************************************************************************/
+
+/************ Events  *********/
+
+
+main .titre_main {
+    margin-top: 40px;
+
+}
+
+main i {
+    margin-right: 10px;
+    display: inline;
+}
+
+main h2 {
+    border-bottom: 1px solid #000;
+    padding: 10px;
+    display: inline-block;
+    width: 90%;
+    font-size: 20px;
+
+}
+
+main .event_lieu {
+    display: flex;
+    margin: 20px 0 10px 0;
+    font-weight: 600;
+}
+
+main .event_lieu span {
+    margin-left: 10px;
+}
+
+main .event_lieu span:before {
+    content: "» ";
+}
+
+main .event_lieu span, main .event_lieu h3 {
+    font-size: 14px;
+}
+
+/************ Dernières oeuvres  *********/
+
+main figure {
+    border: 1px solid #000;
+    background: lightgrey;
+    height: 250px;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    margin-top: 20px;
+
+}
+
+main figure h3 {
+    opacity: 0;
+    background: rgb(236, 240, 241);
+    display: block;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    width: 100%;
+    -webkit-transition: opacity 0.2s ease-in;
+    -moz-transition: opacity 0.2s ease-in;
+    -ms-transition: opacity 0.2s ease-in;
+    -o-transition: opacity 0.2s ease-in;
+    transition: opacity 0.2s ease-in;
+    position: absolute;
+}
+
+main figure h3:hover {
+    opacity: 1;
+
 }
 
 /*************************************************************************************************************************************/
@@ -298,12 +637,12 @@ button:focus {
     .description--preview h3 {
         font-size: 0.5em;
     }
+
     .description--preview p,
     .details {
         display: none;
     }
 }
-
 
 /* SYSTEME DE GRILLES */
 
@@ -321,10 +660,11 @@ button:focus {
     clear: both;
     display: block;
 }
+
 /*************************************************************************************************************************************/
 /* MEDIUM DEVICES - Version Tablet - Viewport until 960px */
 /*************************************************************************************************************************************/
-@media only screen and (min-width: 769px) {
+@media only screen and (max-width: 769px) {
     .col-m-1 {
         width: 8.33%;
     }
@@ -385,68 +725,109 @@ button:focus {
         display: block;
     }
 }
-/*************************************************************************************************************************************/
-/* LARGE DEVICES - Version Desktop */
-/*************************************************************************************************************************************/
-@media only screen and (min-width: 960px) {
 
-    .col-1 {
+@media only screen and (max-width: 960px) {
+    .col-m-1 {
         width: 8.33%;
     }
 
-    .col-2 {
+    .col-m-2 {
         width: 16.66%;
     }
 
-    .col-3 {
+    .col-m-3 {
         width: 25%;
     }
 
-    .col-4 {
+    .col-m-4 {
         width: 33.33%;
     }
 
-    .col-5 {
+    .col-m-5 {
         width: 41.66%;
     }
 
-    .col-6 {
+    .col-m-6 {
         width: 50%;
     }
 
-    .col-7 {
+    .col-m-7 {
         width: 58.33%;
     }
 
-    .col-8 {
+    .col-m-8 {
         width: 66.66%;
     }
 
-    .col-9 {
+    .col-m-9 {
         width: 75%;
     }
 
-    .col-10 {
+    .col-m-10 {
         width: 83.33%;
     }
 
-    .col-11 {
+    .col-m-11 {
         width: 91.66%;
     }
 
-    .col-12 {
+    .col-m-12 {
         width: 100%;
     }
 
-    /* on aligne les colonnes les unes à côté des autres avec la propriété float */
-    [class*="col-"] {
-        float: left;
+}
+
+@media only screen and (max-width: 768px) {
+    .col-s-1 {
+        width: 8.33%;
     }
 
-    /* chaque rangée de colonnes doit être enveloppée dans une div de class "row". on applique un clear:both sur chaque row afin d'annuler l'effet de float et éviter que les éléments suivants remontent et entourent le "row" */
-    .row:after {
-        content: "";
-        clear: both;
-        display: block;
+    .col-s-2 {
+        width: 16.66%;
+    }
+
+    .col-s-3 {
+        width: 25%;
+    }
+
+    .col-s-4 {
+        width: 33.33%;
+    }
+
+    .col-s-5 {
+        width: 41.66%;
+    }
+
+    .col-s-6 {
+        width: 50%;
+    }
+
+    .col-s-7 {
+        width: 58.33%;
+    }
+
+    .col-s-8 {
+        width: 66.66%;
+    }
+
+    .col-s-9 {
+        width: 75%;
+    }
+
+    .col-s-10 {
+        width: 83.33%;
+    }
+
+    .col-s-11 {
+        width: 91.66%;
+    }
+
+    .col-s-12 {
+        width: 100%;
+    }
+
+    [class*="col-"] {
+        float: none;
+        padding: 0 15px;
     }
 }

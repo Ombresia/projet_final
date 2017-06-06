@@ -11,7 +11,7 @@ require_once('common/defines.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="robots" content="noindex,nofollow"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title><?= $page_name . ' - ' . ARTIST; ?></title>
+    <title><?= $page_name . ' - ' . ARTIST ?></title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
     <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -32,8 +32,24 @@ require_once('common/defines.php');
     ?>
 
     <!-- Logo -->
-    <div></div>
+    <div id="logo"><p>Christine Ngoy</p>
+    <p>Artiste peintre sur vitre</p></div>
     <!-- Navigation principale -->
-    <nav></nav>
+    <nav>
+        <ul>
+            <li>
+                <a href="../index.php">Accueil</a>
+            </li>
+            <li>
+                <a href="../artiste.php">L'artiste</a>
+            </li>
+            <li>
+                <a href="../galerie.php">La galerie</a>
+            </li>
+            <li>
+                <a href="../contact.php">Contact</a>
+            </li>
+        </ul>
+    </nav>
 
 </header>
