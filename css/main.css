@@ -360,13 +360,21 @@ main i {
     display: inline;
 }
 
-main h2 {
+.accueil h2 {
     border-bottom: 1px solid #000;
     padding: 10px;
     display: inline-block;
     width: 90%;
     font-size: 20px;
 
+}
+
+main h2 {
+    width: 100%;
+    border-bottom: 1px solid #000;
+    padding: 10px;
+    display: inline-block;
+    font-size: 20px;
 }
 
 main .event_lieu {
@@ -410,6 +418,7 @@ main figure h3 {
     -o-transition: opacity 0.2s ease-in;
     transition: opacity 0.2s ease-in;
     position: absolute;
+    bottom:0;
 }
 
 main figure img:hover + h3 {
@@ -430,7 +439,9 @@ main figure img:hover + h3 {
     margin-top:40px;
 }
 
-
+video {
+    margin: 20px 0 20px 0;
+}
 
 
 

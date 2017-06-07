@@ -44,7 +44,7 @@ require_once('views/page_top.php');
         </div>
     </section>
     <!-- Fin slider -->
-    <main class="row">
+    <main class="row accueil">
         <section class="col-12 col-m-12 col-s-12">
             <div class="titre_main">
                 <i class="fa fa-calendar fa-lg" aria-hidden="true"></i>

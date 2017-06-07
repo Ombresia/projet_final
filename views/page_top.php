@@ -43,16 +43,16 @@ require_once('common/defines.php');
     <nav id="menu_normal">
         <ul>
             <li>
-                <a href="../index.php">Accueil</a>
+                <a href="index.php">Accueil</a>
             </li>
             <li>
-                <a href="../artiste.php">L'artiste</a>
+                <a href="artiste.php">L'artiste</a>
             </li>
             <li>
-                <a href="../galerie.php">La galerie</a>
+                <a href="galerie.php">La galerie</a>
             </li>
             <li>
-                <a href="../contact.php">Contact</a>
+                <a href="contact.php">Contact</a>
             </li>
         </ul>
     </nav>
