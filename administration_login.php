@@ -1,6 +1,6 @@
 <?php
 $page_name = 'admin';
-require_once ('./common/functions.php');
+require_once ('common/functions.php');
 ?>
 <head>
     <meta charset="UTF-8">
@@ -20,11 +20,9 @@ require_once ('./common/functions.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/modernizr-custom.js"></script>
     <!-- Scripts de l'editeur de texte -->
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=your_API_key"></script>
-    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-    <script>tinymce.init({selector: 'textarea'});</script>
+    <script src="scripts/plugins/tinymce/tinymce.min.js?apiKey=oki1g7dc3hafn6shl04zx9l19qwu9h2mj1es03uf13sp3lvu"></script>
 </head>
 
 <header>
@@ -48,14 +46,17 @@ require_once ('./common/functions.php');
             <p>Veuillez vous connecter à votre compte.</p>
 
             <!-- Connection -->
-            <form action="authentication.php" method="post">
+            <form method="post">
                 <label for="username">Nom d'utilisateur :</label>
                 <input type="text" id="username" name="username"/>
                 <label for="password">Mot de passe :</label>
                 <input type="password" id="password" name="password"/>
-                <input type="submit" value="Se connecter">
+                <button id="submit_login">Se connecter</button>
             </form>
         </section>
     </div>
+    <?php
+    require_once ('views/js_scripts.php');
+    ?>
 </main>
 </body>

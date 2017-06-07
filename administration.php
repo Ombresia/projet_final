@@ -1,13 +1,10 @@
 <?php
 require_once('common/defines.php');
+require_once('common/functions.php');
 $page_name = 'admin';
 // Authentication test : Si pas logged redirection vers page de login
-session_start();
-if(isset($_SESSION['ISLOGGED'])) {
-    if (!$_SESSION['ISLOGGED']){
-        header('Location: administration_login.php');
-    }
-}
+session_destroy();
+authentication();
 ?>
 <head>
     <meta charset="UTF-8">
@@ -128,7 +125,7 @@ if(isset($_SESSION['ISLOGGED'])) {
         <!-- Galerie -->
         <section id="galery_add">
             <form action="" method="post">
-                <textarea></textarea>
+                <textarea id="tiny"></textarea>
             </form>
         </section>
         <section id="galery_modify"></section>

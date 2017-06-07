@@ -6,26 +6,47 @@
 
 require_once('classes/authenticate.php');
 
-function register() {
+function register()
+{
     $authenticate = new Authenticate();
     // Appel de la methode login de la classe Authenticate
-    $authenticate->register('admin','admin');
+    $authenticate->register('admin', 'admin');
 }
 
-function authentication() {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+function authentication($username,$password)
+{
     $authenticate = new Authenticate();
     // Appel de la methode login de la classe Authenticate
-    echo "test";
-    $authenticate->login($username,$password);
-    if(!isset($_SESSION['ISLOGGED'])) {
-        header('Location: administration_login.php');
-        echo '<p>Nom d\'utilisateur ou mot de passe invalide.</p>';
-    } else {
-        if ($_SESSION['ADMIN'] == 'Y') {
-            header('Location: administration.php');
-        }
+    $authenticate->login($username, $password);
+    if (!isset($_SESSION['ISLOGGED'])) {
+        return false;
     }
+    return true;
+}
+
+
+/**
+ * Fonction search
+ * @param $type : Articles, Artworks, Everything
+ * @param $string : keywords written in the Search Bar
+ */
+function search($type, $string)
+{
+    $search = new Search();
+    $result = 'not found';
+    switch ($type) {
+        case 'Artworks':
+            $result = $search->Artworks($string);
+            break;
+        case 'Articles':
+            $result = $search->Articles($string);
+            break;
+        case 'Everything':
+            $result = $search->Everything($string);
+            break;
+        default :
+            return ($result);
+    }
+    return ($result);
 
 }

@@ -65,6 +65,8 @@ require_once('views/page_top.php');
                         <i class="fa fa-question-circle" aria-hidden="true"></i>
                         <span class="tooltiptext">Le courriel doit contenir au moins 1 caractère @ pour être valide.</span>
                     </span>
+
+                    <!-- Sujet du contact -->
                     <li class="input input--manami">
                         <input type="text" id="subject" name="subject" required="required"
                                class="input__field input__field--manami"/>
@@ -77,8 +79,9 @@ require_once('views/page_top.php');
                         <span class="tooltiptext">Le prénom doit contenir au moins 1 caractère pour être valide.</span>
                     </span>
 
+                    <!-- Message -->
                     <li>
-                        <label for="message">Message *</label>
+                        <label for="message">Message (*)</label>
                         <i class="fa fa-question-circle" aria-hidden="true"></i>
                     </li>
                     <li>

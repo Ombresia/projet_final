@@ -5,6 +5,7 @@ if (!isset($_SESSION)) {
 }
 // Inclusion des variables et constantes
 require_once('common/defines.php');
+
 ?>
 
 <head>

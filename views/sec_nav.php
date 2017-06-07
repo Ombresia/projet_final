@@ -11,7 +11,13 @@
 
     <div>
         <!-- Recherche -->
-        <i class="fa fa-search fa-2x ico_color_search" aria-hidden="true"></i>
+        <form>
+            <input type="search" id="search" name="search"/>
+            <button id="search_submit" name="search_submit">
+                <i class="fa fa-search fa-2x ico_color_search" aria-hidden="true"></i>
+            </button>
+        </form>
+
         <!-- Favoris -->
         <i class="fa fa-heart fa-2x ico_color_fav" aria-hidden="true"></i></li></div>
 </nav>

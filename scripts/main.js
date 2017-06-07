@@ -403,18 +403,18 @@ console.log('Hello');
         var input_firstname = $('#firstname');
         var firstname_valid = input_firstname.val().trim().length >= 1;
         console.log('Prenom valide : ' + firstname_valid);
-        // si la valeur du champ n'est pas valide < a 1 caractere
+        // si la valeur du champ est < a 1 caractere (invalide)
         if (!firstname_valid) {
             form_valid = false;
             input_firstname.addClass('error');
-            if (!input_firstname.parent().siblings('span').next().is('p.error_msg')) {
-                input_firstname.parent().siblings('span').after('<p class="error_msg">Le prénom doit au moins contenir 1 caractère valide.</p>');
+            if (!input_firstname.parent().next('span').next().is('p.error_msg')) {
+                input_firstname.parent().next('span').after('<p class="error_msg">Le prénom doit au moins contenir 1 caractère valide.</p>');
             }
         } else {
             input_firstname.removeClass('error');
             form_valid = true;
-            if (input_firstname.parent().siblings('span').next().is('p.error_msg')) {
-                input_firstname.parent().siblings('span').next().remove();
+            if (input_firstname.parent().next('span').next().is('p.error_msg')) {
+                input_firstname.parent().next('span').next().remove();
             }
         }
 
@@ -423,38 +423,38 @@ console.log('Hello');
         var lastname_valid = input_lastname.val().trim().length >= 1;
         console.log('Nom valide : ' + lastname_valid);
 
-        if (!nom_valide) { // si la valeur du champ est inferieure a 1 caractere
+        if (!lastname_valid) { // si la valeur du champ est inferieure a 1 caractere
             form_valid = false;
             input_lastname.addClass('error');
-            if (!input_lastname.parent().siblings('span').next().is('p.error_msg')) {
-                input_lastname.parent().siblings('span').after('<p class="error_msg">Le nom doit au moins contenir 1 caractere valide.</p>');
+            if (!input_lastname.parent().next('span').next().is('p.error_msg')) {
+                input_lastname.parent().next('span').after('<p class="error_msg">Le nom doit au moins contenir 1 caractere valide.</p>');
             }
         } else {
             input_lastname.removeClass('error');
             form_valid = true;
-            if (input_lastname.parent().siblings('span').next().is('p.error_msg')) {
-                input_lastname.parent().siblings('span').next().remove();
+            if (input_lastname.parent().next('span').next().is('p.error_msg')) {
+                input_lastname.parent().next('span').next().remove();
             }
         }
 
         // Test du champ TELEPHONE
         var input_phone = $('#phone');
         var pattern_phone = new RegExp(/^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/);
-        var exp_rat_telephone = new RegExp(pattern_phone, 'g');// Création d'un objet Javascript RegExp
-        var phone_valid = exp_rat_telephone.test(input_phone.val());
+        var exp_rat_phone = new RegExp(pattern_phone, 'g');// Création d'un objet Javascript RegExp
+        var phone_valid = exp_rat_phone.test(input_phone.val());
         console.log('Telephone valide : ' + phone_valid);
 
-        if (phone_valid == false) { // si la valeur du champ n'est pas valide < a 1 caractere
+        if (phone_valid == false) { // si la valeur du champ n'est pas valide
             form_valid = false;
             input_phone.addClass('error');
-            if (!input_phone.parent().siblings('span').next().is('p.error_msg')) {
-                input_phone.parent().siblings('span').after('<p class="error_msg">Le telephone doit etre au format XXX-XXX-XXXX.</p>');
+            if (!input_phone.parent().next('span').next().is('p.error_msg')) {
+                input_phone.parent().next('span').after('<p class="error_msg">Le telephone doit etre au format XXX-XXX-XXXX.</p>');
             }
         } else {
             input_phone.removeClass('error');
             form_valid = true;
-            if (input_phone.parent().siblings('span').next().is('p.error_msg')) {
-                input_phone.parent().siblings('span').next().remove();
+            if (input_phone.parent().next('span').next().is('p.error_msg')) {
+                input_phone.parent().next('span').next().remove();
             }
         }
 
@@ -465,17 +465,17 @@ console.log('Hello');
         var email_valide = exp_rat_email.test(input_email.val());
         console.log('Courriel valide : ' + email_valide);
 
-        if (email_valide == false) { // si la valeur du champ n'est pas valide < a 1 caractere
+        if (email_valide == false) { // si la valeur du champ n'est pas valide
             form_valid = false;
             input_email.addClass('error');
-            if (!input_email.parent().siblings('span').next().is('p.error_msg')) {
-                input_email.parent().siblings('span').after('<p class="error_msg">Le courriel doit au moins contenir le caractere @.</p>');
+            if (!input_email.parent().next('span').next().is('p.error_msg')) {
+                input_email.parent().next('span').after('<p class="error_msg">Le courriel doit au moins contenir le caractere @.</p>');
             }
         } else {
             input_email.removeClass('error');
             form_valid = true;
-            if (input_email.parent().siblings('span').next().is('p.error_msg')) {
-                input_email.parent().siblings('span').next().remove();
+            if (input_email.parent().next('span').next().is('p.error_msg')) {
+                input_email.parent().next('span').next().remove();
             }
         }
 
@@ -493,8 +493,38 @@ console.log('Hello');
         console.log('Je dois valider');
     });
 
+    /**
+     * Fonction Search
+     */
+    $('#search_submit').on('click',function () {
+        $.post(
+            '_controller.php',
+            {
+                function : 'search',
+                parameters : [$('#search').val()]
+            },
+            function (data) {
+                console.log(data);
+            }
+        )
+    });
 
-
+    /**
+     * Fonction Login
+     */
+    $('#submit_login').on('click',function () {
+        $.post("_controller.php", {function : "authentication",  parameters : [$('#username').val(), $('#password').val()]},
+            function (data) { // data vaut result de la fonction
+                console.log(data);
+                if (data) {
+                    window.location.replace('administration.php');
+                } else {
+                    // jQuery du message d'erreur du login
+                    window.alert('login failed');
+                }
+            }
+        );
+    });
 
 })(window);
 
