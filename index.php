@@ -94,6 +94,12 @@ require_once('views/page_top.php');
 
 
         </section>
+
+        <?php
+        // Inclusion des scripts JS
+        require_once ('views/js_scripts.php');
+        ?>
+
     </main>
     </body>
 

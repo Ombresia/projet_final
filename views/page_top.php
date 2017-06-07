@@ -5,6 +5,7 @@ if (!isset($_SESSION)) {
 }
 // Inclusion des variables et constantes
 require_once('common/defines.php');
+
 ?>
 
 <head>
@@ -25,6 +26,7 @@ require_once('common/defines.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <!-- Editeur de texte Tinymce -->
     <script src="scripts/plugins/tinymce/tinymce.min.js?apiKey=oki1g7dc3hafn6shl04zx9l19qwu9h2mj1es03uf13sp3lvu"></script>
     <script src="scripts/modernizr-custom.js"></script>
 </head>
@@ -65,16 +67,16 @@ require_once('common/defines.php');
         <div class="responsive-menu">
             <ul>
                 <li>
-                    <a href="../index.php">Accueil</a>
+                    <a href="index.php">Accueil</a>
                 </li>
                 <li>
-                    <a href="../artiste.php">L'artiste</a>
+                    <a href="artiste.php">L'artiste</a>
                 </li>
                 <li>
-                    <a href="../galerie.php">La galerie</a>
+                    <a href="galerie.php">La galerie</a>
                 </li>
                 <li>
-                    <a href="../contact.php">Contact</a>
+                    <a href="contact.php">Contact</a>
                 </li>
             </ul>
         </div>

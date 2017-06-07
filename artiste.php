@@ -14,7 +14,6 @@ require_once('views/page_top.php');
                 <h2>Qui suis-je ?</h2>
             </div>
 
-
             <figure class="col-4 col-m-4 col-s-12"><img src="images/original/autoprotrait.jpg"></figure>
 
             <article class="col-6 col-m-6 col-s-12">
@@ -68,6 +67,12 @@ require_once('views/page_top.php');
 
             </article>
         </section>
+
+        <?php
+        // Inclusion des scripts JS
+        require_once ('views/js_scripts.php');
+        ?>
+
     </main>
     </body>
 
