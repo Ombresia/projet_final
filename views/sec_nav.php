@@ -1,8 +1,5 @@
 <?php
-// Demarrage d'une session
-if (!isset($_SESSION)) {
-    session_start();
-}
+
 ?>
 
 <nav id="second_nav">
