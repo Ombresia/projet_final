@@ -7,10 +7,21 @@ require_once('views/page_top.php');
 ?>
 
     <!-- Page de la galerie -->
-    <body>
-    <main class="demo-2">
-        <h1>La galerie</h1>
-        <section class="container">
+    <section>
+    <main class="row">
+        <section class="col-12 col-m-12 col-s-12">
+        <div class="titre_main">
+            <h2>La galerie</h2>
+        </div>
+
+        <section class="col-12 col-m-12 col-s-12">
+            <nav>
+                <ul id="categories_artworks">
+                    <li>Peinture sur vitre</li>
+                    <li>Peinture sur bois</li>
+                    <li>Peinture africaine</li>
+                </ul>
+            </nav>
             <div class="content">
                 <div class="grid">
                     <!-- Photo 1 -->
@@ -181,7 +192,7 @@ require_once('views/page_top.php');
             <!-- /content -->
         </section>
         <!-- /container -->
-    </main>
+    </main></section>
 
     <?php
     // Inclusion des scripts js
