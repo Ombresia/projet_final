@@ -201,7 +201,8 @@ header {
 /* Navigation principale */
 /*****************************************************************************/
 
-header nav ul {
+header nav ul,
+#categories_artworks {
     display: flex;
     justify-content: center;
     padding: 10px;
@@ -209,11 +210,13 @@ header nav ul {
     border-bottom: 1px solid #999999;
 }
 
-header nav li {
+header nav li,
+#categories_artworks li {
     border-left: 1px solid #000000;
 }
 
-header nav li:first-child {
+header nav li:first-child,
+#categories_artworks li:first-child {
     border: none;
 }
 
@@ -447,6 +450,17 @@ video {
 /*************************************************************************************************************************************/
 /* PAGE Galery */
 /*************************************************************************************************************************************/
+
+/* Navigation catégories */
+
+#categories_artworks {
+    width: 800px;
+    margin: 40px auto 0;
+}
+
+#categories_artworks li {
+    padding: 0 20px;
+}
 
 /* Galery Content */
 
