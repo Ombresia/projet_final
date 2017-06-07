@@ -61,7 +61,7 @@
     </div>
 
     <div class="responsive-ml">
-        <div id="mentions_legales" class="col-3 col-s-12">
+        <div id="contenu_footer" class="col-3 col-s-12">
 
             <p>Copyright 2017</p></div>
     </div>
@@ -73,9 +73,15 @@
     </div>
 
     <div class="responsive-contact">
-        <div id="mentions_legales" class="col-3 col-s-12">
+        <div id="contenu_footer" class="col-3 col-s-12">
 
             <p>christine.ngoy@gmail.com/p></div>
+    </div>
+
+    <div id="rs_footer">
+        <!-- Icones des reseaux sociaux -->
+        <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
+        <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
     </div>
 
 </div>
