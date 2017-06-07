@@ -206,6 +206,7 @@ header nav ul {
     justify-content: center;
     padding: 10px;
     border-top: 1px solid #999999;
+    border-bottom: 1px solid #999999;
 }
 
 header nav li {
@@ -242,6 +243,10 @@ footer h4 {
     margin-bottom: 10px;
     text-transform: uppercase;
 
+}
+
+.mobile_footer {
+    display: none;
 }
 
 /*************************************************************************************************************************************/
@@ -331,7 +336,8 @@ label {
 main {
     background: #fff;
     display: flex;
-    border: 2px solid #ecf0f1;
+    border-left: 2px solid #ecf0f1;
+    border-right: 2px solid #ecf0f1;
     width: 80%;
     margin: 0 auto;
     padding: 20px 80px 20px 80px;
@@ -384,12 +390,11 @@ main .event_lieu span, main .event_lieu h3 {
 /************ Dernières oeuvres  *********/
 
 main figure {
-    box-shadow: 0 0 10px #d3dcde;
+
     display: flex;
     align-items: flex-end;
     position: relative;
     margin-top: 20px;
-
 }
 
 main figure h3 {
@@ -409,8 +414,27 @@ main figure h3 {
 
 main figure img:hover + h3 {
     opacity: 1;
-
 }
+
+
+/*************************************************************************************************************************************/
+/* PAGE artiste */
+/*************************************************************************************************************************************/
+
+.artiste p {
+    margin: 10px 0 10px 0;
+    text-align: justify;
+}
+
+.artiste figure, .artiste article{
+    margin-top:40px;
+}
+
+
+
+
+
+
 
 /*************************************************************************************************************************************/
 /* PAGE Galery */
@@ -959,6 +983,9 @@ main figure img:hover + h3 {
 
 }
 
+/*************************************************************************************************************************************/
+/* SMALL DEVICES - Version mobile - Viewport until 768px */
+/*************************************************************************************************************************************/
 @media only screen and (max-width: 768px) {
     .col-s-1 {
         width: 8.33%;
@@ -1013,9 +1040,7 @@ main figure img:hover + h3 {
         padding: 0 15px;
     }
 
-    /************* Nav principale ************/
-
-
+    /************************* Nav principale ************************/
     #menu_normal {
         display: none;
     }
@@ -1052,27 +1077,17 @@ main figure img:hover + h3 {
         background: #d3dcde;
     }
 
-
-    .menu-btn, .menu-btn-contact, .menu-btn-ml {
+    .menu-btn, .menu-btn-contact, .menu-btn-ml, #rs_footer  {
         padding: 6px;
         display: flex;
-        align-items: flex-end;
+        height: 50px;
 
     }
 
-    /*on style le hamburger*/
-    .menu-btn span {
-        display: block;
-        /*les span se placent les uns sous les autres*/
-        width: 50px;
-        /*largeur de la rayure*/
-        height: 3px;
-        /*hauteur de la rayure*/
-        margin: 8px 0;
-        /*on les sépare*/
-        background: #170B0B;
-        /*couleur des rayures*/
-        z-index: 99;
+    .menu-btn-contact, .menu-btn-ml, #rs_footer {
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid #999999;
     }
 
     /*on cache le menu par défaut*/
@@ -1085,11 +1100,20 @@ main figure img:hover + h3 {
         display: block !important;
     }
 
+    /********************************** HEADER  ***********************/
+
+    #logo p:last-child, #second_nav{
+        display: none;
+
+    }
+
+    #logo p:first-child {
+        font-size:62px;
+        padding:10px 0 10px 0;
+    }
 
 
-
-
-    /********** Main  ***********/
+    /********************************** Main  ***********************/
     main section {
         padding: 0;
     }
@@ -1098,23 +1122,23 @@ main figure img:hover + h3 {
         margin: 0;
     }
 
-    /********** FOOTER  ***********/
+    /********************************** FOOTER  ***********************/
     #footer_base {
         display: none;
     }
 
-    .mobile-footer {
+    .mobile_footer {
         display: block;
         background: #ECF0F1;
-        cursor: pointer;
     }
 
     .menu-btn-ml h4, .menu-btn-contact h4 {
-        margin-left:10px;
+        margin-left: 10px;
+        font-size: 24px;
     }
 
     /*on cache le menu par défaut*/
-    .responsive-ml,  .responsive-contact {
+    .responsive-ml, .responsive-contact {
         display: none;
     }
 
@@ -1124,12 +1148,19 @@ main figure img:hover + h3 {
 
     }
 
-    .fa + .expand  {
-        transform: rotateX(180deg);
-
+    #contenu_footer p {
+        text-align: center;
     }
 
-    
+    #rs_footer i {
+        margin:0 10px 0 10px
+    }
+
+
+        /************************************* INDEX *********************/
+    #slider {
+        display: none;
+    }
 
 }
     
