@@ -427,7 +427,7 @@ console.log('Hello');
             form_valid = false;
             input_lastname.addClass('error');
             if (!input_lastname.parent().next('span').next().is('p.error_msg')) {
-                input_lastname.parent().next('span').after('<p class="error_msg">Le nom doit au moins contenir 1 caractere valide.</p>');
+                input_lastname.parent().next('span').after('<p class="error_msg">Le nom doit au moins contenir 1 caractère valide.</p>');
             }
         } else {
             input_lastname.removeClass('error');
@@ -479,10 +479,49 @@ console.log('Hello');
             }
         }
 
+
+        // Test du champ SUJET
+        var input_subject = $('#subject');
+        var subject_valid = input_subject.val().trim().length >= 1;
+        console.log('Sujet du message valide : ' + subject_valid);
+
+        if (!subject_valid) { // si la valeur du champ est inferieure a 1 caractere
+            form_valid = false;
+            input_subject.addClass('error');
+            if (!input_subject.parent().next('span').next().is('p.error_msg')) {
+                input_subject.parent().next('span').after('<p class="error_msg">Le sujet doit au moins contenir 1 caractere valide.</p>');
+            }
+        } else {
+            input_subject.removeClass('error');
+            form_valid = true;
+            if (input_subject.parent().next('span').next().is('p.error_msg')) {
+                input_subject.parent().next('span').next().remove();
+            }
+        }
+
+        // Test du champ MESSAGE
+        var textarea_message = $('#message');
+        var message_valid = textarea_message.val().trim().length >= 1;
+        console.log('Message valide : ' + message_valid);
+
+        if (!message_valid) { // si la valeur du champ est inferieure a 1 caractere
+            form_valid = false;
+            textarea_message.addClass('error');
+            if (!textarea_message.parent().next().is('p.error_msg')) {
+                textarea_message.parent().after('<p class="error_msg">Le message doit au moins contenir 1 caractere valide.</p>');
+            }
+        } else {
+            textarea_message.removeClass('error');
+            form_valid = true;
+            if (textarea_message.parent().next().is('p.error_msg')) {
+                textarea_message.parent().next().remove();
+            }
+        }
+
         // Si le formulaire n'est pas valide, on intercepte la soumission
         if (!form_valid) {
             console.log('Soumission interrompue');
-            event.preventDefault();
+            //event.preventDefault();
         } else {
             console.log('Soumission reussie');
         }
@@ -490,7 +529,6 @@ console.log('Hello');
 
     $('#contact_submit').on('click', function () {
         valider_formulaire();
-        console.log('Je dois valider');
     });
 
     /**
