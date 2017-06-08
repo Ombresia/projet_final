@@ -156,6 +156,10 @@ header {
     cursor: pointer;
 }
 
+#second_nav .ico_color_fav {
+    margin-left: 10px;
+}
+
 #second_nav .ico_color_fav:hover {
     color: #e6b800;
     -webkit-transition: all 0.2s ease-in;
@@ -174,6 +178,96 @@ header {
     -o-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
     cursor: pointer;
+}
+
+.s_and_fav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+/******************* SEARCH BAR ****************/
+
+input {
+    outline: none;
+}
+
+input[type=search] {
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+    display: none;
+}
+
+input[type=search] {
+    background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 5px center;
+    border: solid 1px #ccc;
+    padding: 9px 10px 9px 32px;
+    width: 55px;
+
+    -webkit-border-radius: 10em;
+    -moz-border-radius: 10em;
+    border-radius: 10em;
+
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
+}
+
+input[type=search]:focus {
+    width: 130px;
+    background-color: #fff;
+    border-color: #b6c5c9;
+
+    -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+}
+
+input:-moz-placeholder {
+    color: #999;
+}
+
+input::-webkit-input-placeholder {
+    color: #999;
+}
+
+#recherche input[type=search] {
+    width: 8px;
+    padding-left: 10px;
+    color: transparent;
+    cursor: pointer;
+    height: 8px;
+}
+
+#recherche input[type=search]:hover {
+    background-color: #fff;
+}
+
+#recherche input[type=search]:focus {
+    width: 130px;
+    padding-left: 32px;
+    color: #000;
+    background-color: #fff;
+    cursor: auto;
+}
+
+#recherche input:-moz-placeholder {
+    color: transparent;
+}
+
+#recherche input::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.s_and_fav button {
+    display: none;
 }
 
 /*************************************************************************************************************************************/
@@ -201,8 +295,7 @@ header {
 /* Navigation principale */
 /*****************************************************************************/
 
-header nav ul,
-#categories_artworks {
+header nav ul {
     display: flex;
     justify-content: center;
     padding: 10px;
@@ -210,22 +303,26 @@ header nav ul,
     border-bottom: 1px solid #999999;
 }
 
-header nav li,
-#categories_artworks li {
+header nav li {
     border-left: 1px solid #000000;
 }
 
-header nav li:first-child,
-#categories_artworks li:first-child {
+header nav li:first-child, li:first-child {
     border: none;
 }
 
 header nav a {
-    padding: 20px;
+    font-size: 16px;
+    padding: 0 20px 0 20px
 }
 
 .mobile-nav {
     display: none;
+}
+
+nav a:hover {
+    color: #576f75;
+    transition: 0.4s ease;
 }
 
 /*************************************************************************************************************************************/
@@ -245,7 +342,10 @@ footer h4 {
     width: 90%;
     margin-bottom: 10px;
     text-transform: uppercase;
+}
 
+footer li {
+    padding: 3px 0 3px 0;
 }
 
 .mobile_footer {
@@ -313,7 +413,7 @@ footer h4 {
     transition: all 1s;
 }
 
-label {
+#slides label {
     display: inline-block;
     width: 10px;
     height: 10px;
@@ -421,13 +521,12 @@ main figure h3 {
     -o-transition: opacity 0.2s ease-in;
     transition: opacity 0.2s ease-in;
     position: absolute;
-    bottom:0;
+    bottom: 0;
 }
 
 main figure img:hover + h3 {
     opacity: 1;
 }
-
 
 /*************************************************************************************************************************************/
 /* PAGE artiste */
@@ -438,14 +537,13 @@ main figure img:hover + h3 {
     text-align: justify;
 }
 
-.artiste figure, .artiste article{
-    margin-top:40px;
+.artiste figure, .artiste article {
+    margin-top: 40px;
 }
 
 video {
     margin: 20px 0 20px 0;
 }
-
 
 /*************************************************************************************************************************************/
 /* PAGE Galery */
@@ -454,12 +552,23 @@ video {
 /* Navigation catégories */
 
 #categories_artworks {
-    width: 800px;
     margin: 40px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 #categories_artworks li {
-    padding: 0 20px;
+    padding: 10px 20px 10px 20px;
+    margin: 0 10px 0 10px;
+    background: #ECF0F1;
+    cursor: pointer;
+}
+
+#categories_artworks li:hover {
+    background: #576f75;
+    transition: 0.3s ease;
 }
 
 /* Galery Content */
@@ -715,17 +824,53 @@ video {
 /*************************************************************************************************************************************/
 /* PAGE Contact */
 /*************************************************************************************************************************************/
+
+textarea {
+    width: 95%;
+    height: 100px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.message {
+    font-weight: 600;
+    color: #696969;
+    margin-left: 15px;
+}
+
+input[type="submit"] {
+    display: block;
+    width: 25%;
+    padding: 10px;
+    margin: 30px auto;
+    background: #ECF0F1;
+    border: none;
+    cursor: pointer;
+
+}
+
+input[type="submit"]:hover {
+    background: #A8A8A8;
+    transition: 0.3s ease;
+}
+
+.contact .titre_main {
+    margin-bottom: 20px;
+}
+
 .input {
     position: relative;
     z-index: 1;
     display: inline-block;
-    margin: 1em;
-    width: calc(80% - 2em);
+    width: 94%;
     vertical-align: top;
+    margin: 1em;
 }
+
 .input--manami {
     overflow: hidden;
 }
+
 .input__field {
     position: relative;
     display: block;
@@ -744,6 +889,7 @@ video {
 .input__field:focus {
     outline: none;
 }
+
 .input__field--manami {
     width: 100%;
     background: transparent;
@@ -753,6 +899,7 @@ video {
     z-index: 100;
     opacity: 0;
 }
+
 .input__label {
     display: inline-block;
     float: right;
@@ -770,6 +917,7 @@ video {
     -ms-user-select: none;
     user-select: none;
 }
+
 .input__label--manami {
     width: 100%;
     position: absolute;
@@ -804,12 +952,14 @@ video {
     -webkit-transition: opacity 0.2s;
     transition: opacity 0.2s;
 }
+
 .input__label-content {
     position: relative;
     display: block;
     padding: 1.6em 0;
     width: 100%;
 }
+
 .input__label-content--manami {
     padding: 0;
     -webkit-transform-origin: 0 0;
@@ -858,6 +1008,8 @@ video {
 .tooltip {
     position: relative;
     display: inline-block;
+
+    top: 10px;
 }
 
 /* Tooltip text */
@@ -867,7 +1019,7 @@ video {
     background-color: #555;
     color: #fff;
     text-align: center;
-    padding: 5px 0;
+    padding: 10px;
     border-radius: 6px;
 
     /* Position the tooltip text */
@@ -905,9 +1057,7 @@ video {
     color: red;
 }
 
-
 /* SYSTEME DE GRILLES */
-
 
 /*************************************************************************************************************************************/
 /* SMALL DEVICES - Version Mobile - Viewport until 768px */
@@ -989,201 +1139,215 @@ video {
     /********** INDEX ***********/
     main figure {
         box-shadow: none;
-
     }
 
     main figure img { /* On centre les images dans leur colonne*/
         display: block;
         margin: auto;
-
     }
 
     main figure h3 {
         display: none;
-
     }
 
+    /********** CONTACT *************/
+    .tooltip {
+        display: none;
+    }
 }
+    /*************************************************************************************************************************************/
+    /* SMALL DEVICES - Version mobile - Viewport until 768px */
+    /*************************************************************************************************************************************/
+    @media only screen and (max-width: 768px) {
+        .col-s-1 {
+            width: 8.33%;
+        }
 
-/*************************************************************************************************************************************/
-/* SMALL DEVICES - Version mobile - Viewport until 768px */
-/*************************************************************************************************************************************/
-@media only screen and (max-width: 768px) {
-    .col-s-1 {
-        width: 8.33%;
-    }
+        .col-s-2 {
+            width: 16.66%;
+        }
 
-    .col-s-2 {
-        width: 16.66%;
-    }
+        .col-s-3 {
+            width: 25%;
+        }
 
-    .col-s-3 {
-        width: 25%;
-    }
+        .col-s-4 {
+            width: 33.33%;
+        }
 
-    .col-s-4 {
-        width: 33.33%;
-    }
+        .col-s-5 {
+            width: 41.66%;
+        }
 
-    .col-s-5 {
-        width: 41.66%;
-    }
+        .col-s-6 {
+            width: 50%;
+        }
 
-    .col-s-6 {
-        width: 50%;
-    }
+        .col-s-7 {
+            width: 58.33%;
+        }
 
-    .col-s-7 {
-        width: 58.33%;
-    }
+        .col-s-8 {
+            width: 66.66%;
+        }
 
-    .col-s-8 {
-        width: 66.66%;
-    }
+        .col-s-9 {
+            width: 75%;
+        }
 
-    .col-s-9 {
-        width: 75%;
-    }
+        .col-s-10 {
+            width: 83.33%;
+        }
 
-    .col-s-10 {
-        width: 83.33%;
-    }
+        .col-s-11 {
+            width: 91.66%;
+        }
 
-    .col-s-11 {
-        width: 91.66%;
-    }
+        .col-s-12 {
+            width: 100%;
+        }
 
-    .col-s-12 {
-        width: 100%;
-    }
+        [class*="col-"] {
+            float: none;
+            padding: 0 15px;
+        }
 
-    [class*="col-"] {
-        float: none;
-        padding: 0 15px;
-    }
+        /************************* Nav principale ************************/
+        #menu_normal {
+            display: none;
+        }
 
-    /************************* Nav principale ************************/
-    #menu_normal {
-        display: none;
-    }
+        .mobile-nav {
+            display: block;
+            background: #ECF0F1;
+            cursor: pointer;
+        }
 
-    .mobile-nav {
-        display: block;
-        background: #ECF0F1;
-        cursor: pointer;
-    }
+        /*on enlève le float sur les liens du menu et on applique une largeur de 100% */
+        header li {
+            float: none;
+            width: 100%;
+            border-left: 0 solid #fff !important;
+            /*on élimine la bordure gauche*/
+            border-top: 1px solid #FFF;
+            list-style: none;
+        }
 
-    /*on enlève le float sur les liens du menu et on applique une largeur de 100% */
-    header li {
-        float: none;
-        width: 100%;
-        border-left: 0 solid #fff !important;
-        /*on élimine la bordure gauche*/
-        border-top: 1px solid #FFF;
-        list-style: none;
-    }
+        /*on justifie à gauche les liens */
+        .responsive-menu li a {
+            display: block;
+            height: 50px;
+            text-align: left;
+            width: 100%;
+            text-decoration: none;
+            padding: 15px;
+        }
 
-    /*on justifie à gauche les liens */
-    .responsive-menu li a {
-        display: block;
-        height: 50px;
+        .responsive-menu li:hover {
+            background: #d3dcde;
+        }
 
-        text-align: left;
-        width: 100%;
+        .menu-btn, .menu-btn-contact, .menu-btn-ml, #rs_footer {
+            padding: 6px;
+            display: flex;
+            height: 50px;
+        }
 
-        text-decoration: none;
-        padding: 15px;
-    }
+        .menu-btn-contact, .menu-btn-ml, #rs_footer {
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #999999;
+        }
 
-    .responsive-menu li:hover {
-        background: #d3dcde;
-    }
+        /*on cache le menu par défaut*/
+        .responsive-menu {
+            display: none;
+        }
 
-    .menu-btn, .menu-btn-contact, .menu-btn-ml, #rs_footer  {
-        padding: 6px;
-        display: flex;
-        height: 50px;
+        /*on affiche le menu qd l'utilisateur clique sur le hamburger, on ajoute la classe expand en jQuery*/
+        .expand {
+            display: block !important;
+        }
 
-    }
+        /********************************** HEADER  ***********************/
+        #logo p:last-child, #second_nav {
+            display: none;
+        }
 
-    .menu-btn-contact, .menu-btn-ml, #rs_footer {
-        align-items: center;
-        justify-content: center;
-        border-bottom: 1px solid #999999;
-    }
+        #logo p:first-child {
+            font-size: 62px;
+            padding: 10px 0 10px 0;
+        }
 
-    /*on cache le menu par défaut*/
-    .responsive-menu {
-        display: none;
-    }
+        /********************************** Main  ***********************/
+        main section {
+            padding: 0;
+        }
 
-    /*on affiche le menu qd l'utilisateur clique sur le hamburger, on ajoute la classe expand en jQuery*/
-    .expand {
-        display: block !important;
-    }
+        figure {
+            margin: 0;
+        }
 
-    /********************************** HEADER  ***********************/
+        /********************************** FOOTER  ***********************/
+        #footer_base {
+            display: none;
+        }
 
-    #logo p:last-child, #second_nav{
-        display: none;
+        .mobile_footer {
+            display: block;
+            background: #ECF0F1;
+        }
 
-    }
+        .menu-btn-ml h4, .menu-btn-contact h4 {
+            margin-left: 10px;
+            font-size: 24px;
+        }
 
-    #logo p:first-child {
-        font-size:62px;
-        padding:10px 0 10px 0;
-    }
+        /*on cache le menu par défaut*/
+        .responsive-ml, .responsive-contact {
+            display: none;
+        }
 
+        /*on affiche le menu qd l'utilisateur clique sur le hamburger, on ajoute la classe expand en jQuery*/
+        .expand {
+            display: block !important;
+        }
 
-    /********************************** Main  ***********************/
-    main section {
-        padding: 0;
-    }
+        #contenu_footer p {
+            text-align: center;
+        }
 
-    figure {
-        margin: 0;
-    }
-
-    /********************************** FOOTER  ***********************/
-    #footer_base {
-        display: none;
-    }
-
-    .mobile_footer {
-        display: block;
-        background: #ECF0F1;
-    }
-
-    .menu-btn-ml h4, .menu-btn-contact h4 {
-        margin-left: 10px;
-        font-size: 24px;
-    }
-
-    /*on cache le menu par défaut*/
-    .responsive-ml, .responsive-contact {
-        display: none;
-    }
-
-    /*on affiche le menu qd l'utilisateur clique sur le hamburger, on ajoute la classe expand en jQuery*/
-    .expand {
-        display: block !important;
-
-    }
-
-    #contenu_footer p {
-        text-align: center;
-    }
-
-    #rs_footer i {
-        margin:0 10px 0 10px
-    }
-
+        #rs_footer i {
+            margin: 0 10px 0 10px
+        }
 
         /************************************* INDEX *********************/
-    #slider {
-        display: none;
-    }
+        #slider {
+            display: none;
+        }
 
-}
+        /************************* GALERY BOUTON ***********************/
+        #categories_artworks {
+            margin: 40px auto 0;
+            display: flex;
+            flex-direction: column; /*axe principal : vertical*/
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        #categories_artworks li {
+
+            margin: 5px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        /******************* CONTACT ****************/
+        .googlemap {
+            display: none;
+        }
+
+    }
     
     

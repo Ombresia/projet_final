@@ -9,9 +9,9 @@
         <i class="fa fa-instagram fa-2x ico_color_insta" aria-hidden="true"></i>
     </div>
 
-    <div>
+    <div class="s_and_fav">
         <!-- Recherche -->
-        <form>
+        <form id="recherche">
             <input type="search" id="search" name="search"/>
             <button id="search_submit" name="search_submit">
                 <i class="fa fa-search fa-2x ico_color_search" aria-hidden="true"></i>
@@ -19,5 +19,8 @@
         </form>
 
         <!-- Favoris -->
-        <i class="fa fa-heart fa-2x ico_color_fav" aria-hidden="true"></i></li></div>
+        <i class="fa fa-heart fa-2x ico_color_fav" aria-hidden="true"></i></li>
+    </div>
 </nav>
+
+
