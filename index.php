@@ -7,7 +7,7 @@ require_once('views/page_top.php');
 ?>
 
     <!-- Page d'accueil -->
-    <body>
+    <body id="top">
 
     <section id="slider">
         <input type="radio" id="slider1" name="slider"/>
@@ -98,6 +98,8 @@ require_once('views/page_top.php');
         <?php
         // Inclusion des scripts JS
         require_once ('views/js_scripts.php');
+        // Inclusion du arrow_top
+        require_once ('views/arrow.php');
         ?>
 
     </main>

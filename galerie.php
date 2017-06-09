@@ -3,11 +3,13 @@
 $page_name = 'Visitez ma galerie';
 // Inclusion du header
 require_once('views/page_top.php');
-
+// Inclusion des fonctions php
+require_once('common/functions.php');
 ?>
 
+<body id="top">
     <!-- Page de la galerie -->
-    <section>
+
     <main class="row">
         <section class="col-12 col-m-12 col-s-12">
         <div class="titre_main">
@@ -17,9 +19,7 @@ require_once('views/page_top.php');
         <section class="col-12 col-m-12 col-s-12">
             <nav>
                 <ul id="categories_artworks">
-                    <li>Peinture sur vitre</li>
-                    <li>Peinture sur bois</li>
-                    <li>Peinture africaine</li>
+                    <?php ?>
                 </ul>
             </nav>
             <div class="content">
@@ -192,14 +192,51 @@ require_once('views/page_top.php');
             <!-- /content -->
         </section>
         <!-- /container -->
-    </main></section>
+        </section>
+    </main>
 
     <?php
     // Inclusion des scripts js
     require_once ('views/js_scripts.php');
+    // Inclusion du arrow_top
+    require_once ('views/arrow.php');
     ?>
 
     <script>
+        /*function display_categories($category_type) {
+            $.get("_controller.php", {function: "get_categories", parameters: [$category_type]},
+                function (data) { // data vaut result de la fonction sous forme d'array
+                    console.log(data);
+                    // Pour chaque categorie cat_title dans data, on passe la fonction
+                    $.each(data, function (cat_data) {
+                        $('#categories_artworks')
+                            .append('<li>')
+                            .attr('id',cat_data.ID)
+                            .text(cat_data.CAT_TITLE);
+                    });
+                })
+        };*/
+        function display_categories($category_type) {
+            $.get(
+                '_controller.php',
+                {
+                    function: 'category',
+                    parameters: [$category_type]
+                },
+            function (data) {console.log(data);},
+            $.each(data, function (cat_data) {
+                    $('#categories_artworks')
+                        .append('<li>')
+                        .attr('id', cat_data.ID)
+                        .text(cat_data.CAT_TITLE);
+                })
+        )};
+
+
+
+        /**
+         * Fonction Galerie
+         */
         (function () {
             var support = {transitions: Modernizr.csstransitions},
                 // transition end event name
@@ -270,3 +307,4 @@ require_once('views/page_top.php');
 <?php
 // Inclusion du footer
 require_once('views/footer.php');
+?>

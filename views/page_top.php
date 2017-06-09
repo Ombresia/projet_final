@@ -15,7 +15,7 @@ require_once('common/defines.php');
     <meta name="author" content="Elorry Detcheverry et Virginie Cuzin"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="robots" content="noindex,nofollow"/>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="" type="image/x-icon">
     <title><?= $page_name . ' - ' . ARTIST ?></title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
