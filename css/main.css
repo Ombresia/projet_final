@@ -552,6 +552,9 @@ video {
     margin: 20px 0 20px 0;
 }
 
+.artiste img {
+    width: 100%;
+}
 
 
 /*************************************************************************************************************************************/
@@ -1353,6 +1356,15 @@ input[type="submit"]:hover {
         #slider {
             display: none;
         }
+
+        .titre_main i {
+            display: none;
+        }
+
+        .accueil h2 {
+            margin: 0;
+        }
+
 
         /************************* GALERY BOUTON ***********************/
         #categories_artworks {
