@@ -271,7 +271,7 @@ input::-webkit-input-placeholder {
 }
 
 /*************************************************************************************************************************************/
-/* Logo */
+/*                  Logo */
 /*****************************************************************************/
 #logo {
     flex-direction: column;
@@ -311,7 +311,7 @@ header nav li:first-child, li:first-child {
     border: none;
 }
 
-header nav a {
+header #menu_normal a {
     font-size: 16px;
     padding: 0 20px 0 20px
 }
@@ -413,7 +413,11 @@ footer li {
     transition: all 1s;
 }
 
-#slides label {
+#slides {
+
+}
+
+#slider label {
     display: inline-block;
     width: 10px;
     height: 10px;
@@ -423,9 +427,13 @@ footer li {
 }
 
 #active {
-    display: flex;
-    justify-content: center;
-
+    background: #ffffff none repeat scroll 0 0;
+    border-left: 2px solid #ecf0f1;
+    border-right: 2px solid #ecf0f1;
+    display: block;
+    margin: auto;
+    text-align: center;
+    width: 80%;
 }
 
 #active label {
@@ -459,23 +467,22 @@ main .titre_main {
 }
 
 main i {
-    margin-right: 10px;
     display: inline;
 }
 
 .accueil h2 {
     border-bottom: 1px solid #000;
-    padding: 10px;
     display: inline-block;
-    width: 90%;
     font-size: 20px;
-
+    margin-left: 10px;
+    padding: 0 0 10px 0;
+    width: 90%;
 }
 
 main h2 {
     width: 100%;
     border-bottom: 1px solid #000;
-    padding: 10px;
+    padding: 0 0 10px 0;
     display: inline-block;
     font-size: 20px;
 }
@@ -544,6 +551,8 @@ main figure img:hover + h3 {
 video {
     margin: 20px 0 20px 0;
 }
+
+
 
 /*************************************************************************************************************************************/
 /* PAGE Galery */
@@ -1059,106 +1068,104 @@ input[type="submit"]:hover {
 
 /* SYSTEME DE GRILLES */
 
-/*************************************************************************************************************************************/
-/* SMALL DEVICES - Version Mobile - Viewport until 768px */
-/*************************************************************************************************************************************/
-@media only screen and (max-width: 768px) {
+    /*************************************************************************************************************************************/
+    /* MEDIUM DEVICES - Version Tablet - Viewport until 960px */
+    /*************************************************************************************************************************************/
+    @media only screen and (max-width: 960px) {
+        .col-m-1 {
+            width: 8.33%;
+        }
 
-    /* on aligne les colonnes les unes à côté des autres avec la propriété float */
-    [class*="col-"] {
-        float: left;
+        .col-m-2 {
+            width: 16.66%;
+        }
+
+        .col-m-3 {
+            width: 25%;
+        }
+
+        .col-m-4 {
+            width: 33.33%;
+        }
+
+        .col-m-5 {
+            width: 41.66%;
+        }
+
+        .col-m-6 {
+            width: 50%;
+        }
+
+        .col-m-7 {
+            width: 58.33%;
+        }
+
+        .col-m-8 {
+            width: 66.66%;
+        }
+
+        .col-m-9 {
+            width: 75%;
+        }
+
+        .col-m-10 {
+            width: 83.33%;
+        }
+
+        .col-m-11 {
+            width: 91.66%;
+        }
+
+        .col-m-12 {
+            width: 100%;
+        }
+
+        /********** MAIN ***********/
+        main {
+            padding: 20px;
+            width: 100%;
+        }
+
+        /********** INDEX ***********/
+        main figure {
+            box-shadow: none;
+        }
+
+        main figure img { /* On centre les images dans leur colonne*/
+            display: block;
+            margin: auto;
+        }
+
+        main figure h3 {
+            display: none;
+        }
+
+        #active {
+            width: 100%;
+        }
+
+        /********** CONTACT *************/
+        .tooltip {
+            display: none;
+        }
     }
-
-    /* chaque rangée de colonnes doit être enveloppée dans une div de class "row". on applique un clear:both sur chaque row afin d'annuler l'effet de float et éviter que les éléments suivants remontent et entourent le "row" */
-    .row:after {
-        content: "";
-        clear: both;
-        display: block;
-    }
-
-}
-
-/*************************************************************************************************************************************/
-/* MEDIUM DEVICES - Version Tablet - Viewport until 960px */
-/*************************************************************************************************************************************/
-@media only screen and (max-width: 960px) {
-    .col-m-1 {
-        width: 8.33%;
-    }
-
-    .col-m-2 {
-        width: 16.66%;
-    }
-
-    .col-m-3 {
-        width: 25%;
-    }
-
-    .col-m-4 {
-        width: 33.33%;
-    }
-
-    .col-m-5 {
-        width: 41.66%;
-    }
-
-    .col-m-6 {
-        width: 50%;
-    }
-
-    .col-m-7 {
-        width: 58.33%;
-    }
-
-    .col-m-8 {
-        width: 66.66%;
-    }
-
-    .col-m-9 {
-        width: 75%;
-    }
-
-    .col-m-10 {
-        width: 83.33%;
-    }
-
-    .col-m-11 {
-        width: 91.66%;
-    }
-
-    .col-m-12 {
-        width: 100%;
-    }
-
-    /********** MAIN ***********/
-    main {
-        padding: 20px;
-        width: 100%;
-    }
-
-    /********** INDEX ***********/
-    main figure {
-        box-shadow: none;
-    }
-
-    main figure img { /* On centre les images dans leur colonne*/
-        display: block;
-        margin: auto;
-    }
-
-    main figure h3 {
-        display: none;
-    }
-
-    /********** CONTACT *************/
-    .tooltip {
-        display: none;
-    }
-}
     /*************************************************************************************************************************************/
     /* SMALL DEVICES - Version mobile - Viewport until 768px */
     /*************************************************************************************************************************************/
     @media only screen and (max-width: 768px) {
+
+        /* on aligne les colonnes les unes à côté des autres avec la propriété float */
+        [class*="col-"] {
+            float: left;
+        }
+
+        /* chaque rangée de colonnes doit être enveloppée dans une div de class "row". on applique un clear:both sur chaque row afin d'annuler l'effet de float et éviter que les éléments suivants remontent et entourent le "row" */
+        .row:after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+
         .col-s-1 {
             width: 8.33%;
         }
@@ -1209,7 +1216,7 @@ input[type="submit"]:hover {
 
         [class*="col-"] {
             float: none;
-            padding: 0 15px;
+
         }
 
         /************************* Nav principale ************************/
@@ -1320,6 +1327,27 @@ input[type="submit"]:hover {
         #rs_footer i {
             margin: 0 10px 0 10px
         }
+
+        #rs_footer .ico_color_fb:hover {
+            color: #3B5998;
+            -webkit-transition: all 0.2s ease-in;
+            -moz-transition: all 0.2s ease-in;
+            -ms-transition: all 0.2s ease-in;
+            -o-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+            cursor: pointer;
+        }
+
+        #rs_footer .ico_color_insta:hover {
+            color: #EA5149;
+            -webkit-transition: all 0.2s ease-in;
+            -moz-transition: all 0.2s ease-in;
+            -ms-transition: all 0.2s ease-in;
+            -o-transition: all 0.2s ease-in;
+            transition: all 0.2s ease-in;
+            cursor: pointer;
+        }
+
 
         /************************************* INDEX *********************/
         #slider {

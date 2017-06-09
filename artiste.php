@@ -43,9 +43,9 @@ require_once('views/page_top.php');
             <div class="titre_main">
                 <h2>Visiter mon atelier</h2>
 
-                <figure class="col-5 col-m-4 col-s-12"><img src="images/original/33.jpg"></figure>
+                <figure class="col-5 col-m-4 col-s-12"><img src="images/thumbs/atelier1.jpg"></figure>
 
-                <figure class="col-5 col-m-4 col-s-12"><img src="images/original/31.jpg"></figure>
+                <figure class="col-5 col-m-4 col-s-12"><img src="images/thumbs/atelier2.jpg"></figure>
 
                 <p class="col-12 col-m-12 col-s-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet
                     blanditiis ea

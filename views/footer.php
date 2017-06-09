@@ -80,8 +80,8 @@
 
     <div id="rs_footer">
         <!-- Icones des reseaux sociaux -->
-        <i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i>
-        <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+        <a href="https://www.facebook.com/christinengoyartistepeintre/" target="_blank"><i class="fa fa-facebook-square fa-2x ico_color_fb" aria-hidden="true"></i></a>
+        <a href="#" target="_blank"><i class="fa fa-instagram fa-2x ico_color_insta" aria-hidden="true"></i></a>
     </div>
 
 </div>
