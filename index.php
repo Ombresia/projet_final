@@ -20,15 +20,15 @@ require_once('views/page_top.php');
                 <div class="inner">
                     <div class="photo">
                         <h3>Titre</h3>
-                        <img src="images/original/image_slider_1.jpg" alt=""/>
+                        <img src="images/thumbs/slider1.jpg" alt=""/>
                     </div>
                     <div class="photo">
                         <h3>Titre</h3>
-                        <img src="images/original/image_slider_2.jpg" alt=""/>
+                        <img src="images/thumbs/slider2.jpg" alt=""/>
                     </div>
                     <div class="photo">
                         <h3>Titre</h3>
-                        <img src="images/chrysanthemum.jpg" alt=""/>
+                        <img src="images/thumbs/slider3.jpg" alt=""/>
                     </div>
                 </div>
                 <!-- Fin du inner -->

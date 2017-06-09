@@ -37,7 +37,7 @@ $validation = array(
 
 // Réception des données
 $en_reception = array_key_exists('contact_submit', $_POST);
-var_dump($_POST);
+//var_dump($_POST);
 if ($en_reception) {
     echo "je suis en reception";
     // Firstname
