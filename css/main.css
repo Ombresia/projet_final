@@ -66,8 +66,8 @@ header {
 
 #arrow_top {
     position: fixed;
-    bottom: 150px;
-    right: 100px;
+    bottom: 50px;
+    right: 50px;
     font-size: 20px;
     border: 1px solid #2c3e50;
     padding: 10px;

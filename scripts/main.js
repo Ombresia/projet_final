@@ -1,7 +1,7 @@
 ;(function (window) {
 
     'use strict';
-console.log('Hello');
+    console.log('Hello');
     /**
      * Scripts de la page GALERIE pour afficher le detail d'une oeuvre
      * http://www.codrops.com
@@ -439,12 +439,12 @@ console.log('Hello');
 
         // Test du champ TELEPHONE
         var input_phone = $('#phone');
-        var pattern_phone = new RegExp(/^\(?([0-9]{3})\)?[-]?([0-9]{3})[-]?([0-9]{4})$/);
-        var exp_rat_phone = new RegExp(pattern_phone, 'g');// Création d'un objet Javascript RegExp
+        var pattern_phone = new RegExp(/^(\d[\s-]?)?[\(\[\s-]{0,2}?\d{3}[\)\]\s-]{0,2}?\d{3}[\s-]?\d{4}$/i);
+        var exp_rat_phone = new RegExp(pattern_phone, 'g');
         var phone_valid = exp_rat_phone.test(input_phone.val());
         console.log('Telephone valide : ' + phone_valid);
 
-        if (phone_valid == false) { // si la valeur du champ n'est pas valide
+        if (!phone_valid) { // si la valeur du champ n'est pas valide
             form_valid = false;
             input_phone.addClass('error');
             if (!input_phone.parent().next('span').next().is('p.error_msg')) {
@@ -460,12 +460,12 @@ console.log('Hello');
 
         // Test du champ COURRIEL
         var input_email = $('#email');
-        var pattern_email = new RegExp((/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i));
+        var pattern_email = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
         var exp_rat_email = new RegExp(pattern_email, 'g');// Création d'un objet Javascript RegExp
-        var email_valide = exp_rat_email.test(input_email.val());
-        console.log('Courriel valide : ' + email_valide);
+        var email_valid = exp_rat_email.test(input_email.val());
+        console.log('Courriel valide : ' + email_valid);
 
-        if (email_valide == false) { // si la valeur du champ n'est pas valide
+        if (!email_valid) { // si la valeur du champ n'est pas valide
             form_valid = false;
             input_email.addClass('error');
             if (!input_email.parent().next('span').next().is('p.error_msg')) {
@@ -521,25 +521,46 @@ console.log('Hello');
         // Si le formulaire n'est pas valide, on intercepte la soumission
         if (!form_valid) {
             console.log('Soumission interrompue');
-            //event.preventDefault();
+            event.preventDefault();
         } else {
             console.log('Soumission reussie');
         }
     }
-
     $('#contact_submit').on('click', function () {
         valider_formulaire();
     });
 
+
+
+})(window);
+
+
+$(document).ready(function () {
+    console.log('DOM construit');
+
+    $(document).on('click','#categories_artworks li',function () {
+        console.log("entered clock event artworks");
+        var id = $(this).attr('id');
+        display_artworks_by_cat_id(id);
+    });
+
+
+
+   /* $('li.trigger').on('click', function () {
+        console.log("entered clock event artworks");
+        var id = $this.attr('id');
+        display_artworks_by_cat_id($id);
+    });*/
+
     /**
      * Fonction Search
      */
-    $('#search_submit').on('click',function () {
+    $('#search_submit').on('click', function () {
         $.post(
             '_controller.php',
             {
-                function : 'search',
-                parameters : [$('#search').val()]
+                function: 'search',
+                parameters: [$('#search').val()]
             },
             function (data) {
                 console.log(data);
@@ -550,8 +571,13 @@ console.log('Hello');
     /**
      * Fonction Login
      */
-    $('#submit_login').on('click',function () {
-        $.post("_controller.php", {function : "authentication",  parameters : [$('#username').val(), $('#password').val()]},
+    $('#submit_login').on('click', function () {
+        var username=$('#username').val();
+        var password=$('#password').val();
+        $.get("_controller.php", {
+                function: "authentication",
+                parameters: [$username,$password]
+            },
             function (data) { // data vaut result de la fonction
                 console.log(data);
                 if (data) {
@@ -563,7 +589,5 @@ console.log('Hello');
             }
         );
     });
-
-})(window);
-
+})
 

@@ -5,6 +5,10 @@
  */
 
 require_once('classes/authenticate.php');
+require_once('classes/category.php');
+require_once('classes/artwork.php');
+require_once('classes/images.php');
+require_once('classes/artist.php');
 
 function register()
 {
@@ -18,12 +22,12 @@ function authentication($username,$password)
     $authenticate = new Authenticate();
     // Appel de la methode login de la classe Authenticate
     $authenticate->login($username, $password);
-    if (!isset($_SESSION['ISLOGGED'])) {
-        return false;
+    if (isset($_SESSION['ISLOGGED'])) {
+        echo "success";
+    } else {
+        echo "failed";
     }
-    return true;
 }
-
 
 /**
  * Fonction search
@@ -45,8 +49,37 @@ function search($type, $string)
             $result = $search->Everything($string);
             break;
         default :
-            return ($result);
     }
-    return ($result);
+    print_r(json_encode($result));
 
 }
+
+
+
+function get_categories($category_type){
+    $categories = new Category();
+    $result = $categories->GetCategories($category_type);
+    print_r(json_encode($result));
+}
+
+function get_artworks_by_cat_id($category_id){
+    $artworks = new Artwork();
+    $result = $artworks->GetArtworkByCategoryId($category_id);
+    print_r(json_encode($result));
+}
+
+function get_artworks(){
+    $artworks = new Artwork();
+    $images = new Images();
+    $result = array();
+    $artworks_result = $artworks->GetArtworks();
+    foreach ($artworks_result as $artwork) {
+        $images_result = $images->GetImage($artwork['id'],'artworks');
+        $artwork['images'] = $images_result;
+        array_push($result,$artwork);
+    }
+
+    print_r(json_encode($result));
+}
+
+

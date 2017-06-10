@@ -32,14 +32,19 @@ $validation = array(
         'value' => '',
         'is_valid' => false,
         'err_msg' => 'Le sujet du message doit au moins contenir 1 caractère valide.',
+    ),
+    'message' => array(
+        'value' => '',
+        'is_valid' => false,
+        'err_msg' => 'Le message doit au moins contenir 1 caractère valide.',
     )
 );
 
 // Réception des données
 $en_reception = array_key_exists('contact_submit', $_POST);
 //var_dump($_POST);
+
 if ($en_reception) {
-    echo "je suis en reception";
     // Firstname
     $v =& $validation['firstname'];
     $v['value'] = trim(filter_input(INPUT_POST, 'firstname', FILTER_SANITIZE_STRING));
@@ -62,7 +67,17 @@ if ($en_reception) {
     $v['value'] = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING));
     $v['is_valid'] = (1 === preg_match($v['regex'], $v['value']));
 
-    // Est-ce tous les champs sont valides ?
+    // Subject
+    $v =& $validation['subject'];
+    $v['value'] = trim(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING));
+    $v['is_valid'] = strlen($v['value']) >= 1;
+
+    // Message
+    $v =& $validation['message'];
+    //$v['value'] = trim($_POST['message']);
+    $v['value'] = trim(filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING));
+    $v['is_valid'] = strlen($v['value']) >= 1;
+
     $formulaire_valide = true;
     foreach ($validation as $val) {
         if (!$val['is_valid']) {
@@ -71,7 +86,6 @@ if ($en_reception) {
         }
     }
     if ($formulaire_valide) {
-        echo "<p>Ca a marché ! Youhou !!!</p>";
         exit;
     }
 }
@@ -189,8 +203,15 @@ if ($en_reception) {
 
                     </li>
                     <li>
-                        <textarea id="message" name="message" cols="150" rows="20" required="required"></textarea>
+                        <textarea id="message" name="message" cols="150" rows="20" required="required"><?= $en_reception ? $_POST['message'] : '' ?></textarea>
                     </li>
+                    <?php
+                    if ($en_reception && !$validation['message']['is_valid']) {
+                        echo '<p class="err_msg">' . $validation['message']['err_msg'].'</p>';
+                    }
+                    ?>
+
+                    <!-- Submit -->
                     <li>
                         <input type="submit" id="contact_submit" name="contact_submit" value="Envoyer"/>
                     </li>

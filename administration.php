@@ -3,7 +3,7 @@ require_once('common/defines.php');
 require_once('common/functions.php');
 $page_name = 'admin';
 // Authentication test : Si pas logged redirection vers page de login
-session_destroy();
+//session_destroy();
 authentication();
 ?>
 <head>

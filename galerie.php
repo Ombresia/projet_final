@@ -203,34 +203,67 @@ require_once('common/functions.php');
     ?>
 
     <script>
-        /*function display_categories($category_type) {
-            $.get("_controller.php", {function: "get_categories", parameters: [$category_type]},
+        /**
+         * UL
+         */
+        function display_categories($category_type) {
+            $.getJSON("_controller.php", {function: "get_categories", parameters: [$category_type]},
                 function (data) { // data vaut result de la fonction sous forme d'array
                     console.log(data);
                     // Pour chaque categorie cat_title dans data, on passe la fonction
-                    $.each(data, function (cat_data) {
-                        $('#categories_artworks')
-                            .append('<li>')
-                            .attr('id',cat_data.ID)
-                            .text(cat_data.CAT_TITLE);
+                    $.each(data, function (index, cat_data) {
+                        console.log(cat_data.CAT_TITLE);
+                        $('ul#categories_artworks')
+                            .append('<li id="' + cat_data.ID + '" class="trigger">' + cat_data.CAT_TITLE +'</li>');
                     });
                 })
-        };*/
-        function display_categories($category_type) {
-            $.get(
-                '_controller.php',
-                {
-                    function: 'category',
-                    parameters: [$category_type]
-                },
-            function (data) {console.log(data);},
-            $.each(data, function (cat_data) {
-                    $('#categories_artworks')
-                        .append('<li>')
-                        .attr('id', cat_data.ID)
-                        .text(cat_data.CAT_TITLE);
+        };
+        display_categories('artworks');
+
+        function display_artworks_by_cat_id($id) {
+            $.getJSON("_controller.php", {function: "get_artworks_by_cat_id", parameters: [$id]},
+                function (data) { // data vaut result de la fonction sous forme d'array
+                    // Pour chaque artwork trouvee on boucle
+                    $('.grid').empty();
+                    $.each(data, function (index, art_data) {
+                        $('.grid').append('<div id="' + art_data.id + '" class="grid__item" data-size="640x960"></div>');
+                        $('div#' + art_data.id).append('<a href="' + art_data.image_path + '" class="img-wrap"></a>');
+                        $('div#' + art_data.id + ' a.img-wrap').append('<img src="' + art_data.image_path + '" alt="' + art_data.content_type + '"/>');
+                        $('div#' + art_data.id + ' a.img-wrap').append('<div class="description description--grid"></div>');
+                        $('div#' + art_data.id + ' div.description').append('<h3>' + art_data.art_title + '</h3>');
+                        $('div#' + art_data.id + ' div.description').append('<p>' + art_data.art_description + '</p>');
+
+                    });
+                    init_grid();
                 })
-        )};
+        };
+
+        function display_artworks() {
+            $.getJSON("_controller.php", {function: "get_artworks", parameters:['']},
+                function (data) { // data vaut result de la fonction sous forme d'array
+                    // Pour chaque artwork trouvee on boucle
+                    $('.grid').empty();
+                    $.each(data, function (index, art_data) {
+                        $('.grid').append('<div id="' + art_data.id + '" class="grid__item" data-size="640x960"></div>');
+                        $(art_data.images).each(function(i,image_data){
+                            if(image_data.image_type == 'original') {
+                                $('div#' + art_data.id).append('<a href="' + image_data.image_path + '" class="img-wrap"></a>');
+                            }
+                        });
+                        $(art_data.images).each(function(index,image_data){
+                            if(image_data.image_type == 'thumbs') {
+                                $('div#' + art_data.id + ' a.img-wrap').append('<img src="' + image_data.image_path + '" alt="' + image_data.content_type + '"/>');
+                            }
+                        });
+
+                        $('div#' + art_data.id + ' a.img-wrap').append('<div class="description description--grid"></div>');
+                        $('div#' + art_data.id + ' div.description').append('<h3>' + art_data.art_title + '</h3>');
+                        $('div#' + art_data.id + ' div.description').append('<p>' + art_data.art_description + '</p><p><em>' + art_data.FIRSTNAME + ' ' + art_data.LASTNAME + '</em></p>');
+                    });
+                    init_grid();
+                })
+        };
+        display_artworks();
 
 
 
@@ -266,6 +299,11 @@ require_once('common/functions.php');
                     }
                 };
 
+        })();
+        /**
+         * fonction d'initialisation de la grille
+         */
+        function init_grid() {
             new GridFx(document.querySelector('.grid'), {
                 imgPosition: {
                     x: -0.5,
@@ -299,8 +337,9 @@ require_once('common/functions.php');
                         }
                     });
                 }
-            });
-        })();
+            })
+        }
+        init_grid();
     </script>
     </body>
 
