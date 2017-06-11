@@ -24,162 +24,7 @@ require_once('common/functions.php');
             </nav>
             <div class="content">
                 <div class="grid">
-                    <!-- Photo 1 -->
-                    <div class="grid__item" data-size="640x960">
-                        <a href="images/original/1.jpg" class="img-wrap">
-                            <img src="images/thumbs/1.jpg" alt=""/>
-                            <div class="description description--grid">
-                                <h3>Titre de l'oeuvre</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda cupiditate
-                                    deleniti expedita illo nam neque odit, rerum saepe sit? Architecto aspernatur
-                                    commodi cupiditate dolorem est molestias neque, possimus quae.</p>
-                                <p><em>Christine Ngoy</em></p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Photo 2 -->
-                    <div class="grid__item" data-size="640x960">
-                        <a href="images/original/2.jpg" class="img-wrap">
-                            <img src="images/thumbs/2.jpg" alt=""/>
-                            <div class="description description--grid">
-                                <h3>Titre de l'oeuvre</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda cupiditate
-                                    deleniti expedita illo nam neque odit, rerum saepe sit? Architecto aspernatur
-                                    commodi cupiditate dolorem est molestias neque, possimus quae.</p>
-                                <p><em>Christine Ngoy</em></p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Photo 3 -->
-                    <div class="grid__item" data-size="640x960">
-                        <a href="images/original/3.jpg" class="img-wrap">
-                            <img src="images/thumbs/3.jpg" alt=""/>
-                            <div class="description description--grid">
-                                <h3>Titre de l'oeuvre</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda cupiditate
-                                    deleniti expedita illo nam neque odit, rerum saepe sit? Architecto aspernatur
-                                    commodi cupiditate dolorem est molestias neque, possimus quae.</p>
-                                <p><em>Christine Ngoy</em></p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Photo 4 -->
-                    <div class="grid__item" data-size="640x960">
-                        <a href="images/original/4.jpg" class="img-wrap">
-                            <img src="images/thumbs/4.jpg" alt=""/>
-                            <div class="description description--grid">
-                                <h3>Titre de l'oeuvre</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda cupiditate
-                                    deleniti expedita illo nam neque odit, rerum saepe sit? Architecto aspernatur
-                                    commodi cupiditate dolorem est molestias neque, possimus quae.</p>
-                                <p><em>Christine Ngoy</em></p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Photo 5 -->
-                    <div class="grid__item" data-size="960x640">
-                        <a href="images/original/5.jpg" class="img-wrap">
-                            <img src="images/thumbs/5.jpg" alt=""/>
-                            <div class="description description--grid">
-                                <h3>Titre de l'oeuvre</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda cupiditate
-                                    deleniti expedita illo nam neque odit, rerum saepe sit? Architecto aspernatur
-                                    commodi cupiditate dolorem est molestias neque, possimus quae.</p>
-                                <p><em>Christine Ngoy</em></p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Photo 6 -->
-                    <div class="grid__item" data-size="960x640">
-                        <a href="images/original/6.jpg" class="img-wrap">
-                            <img src="images/thumbs/6.jpg" alt=""/>
-                            <div class="description description--grid">
-                                <h3>Titre de l'oeuvre</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda cupiditate
-                                    deleniti expedita illo nam neque odit, rerum saepe sit? Architecto aspernatur
-                                    commodi cupiditate dolorem est molestias neque, possimus quae.</p>
-                                <p><em>Christine Ngoy</em></p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Photo 7 -->
-                    <div class="grid__item" data-size="960x640">
-                        <a href="images/original/7.jpg" class="img-wrap">
-                            <img src="images/thumbs/7.jpg" alt=""/>
-                            <div class="description description--grid">
-                                <h3>Titre de l'oeuvre</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda cupiditate
-                                    deleniti expedita illo nam neque odit, rerum saepe sit? Architecto aspernatur
-                                    commodi cupiditate dolorem est molestias neque, possimus quae.</p>
-                                <p><em>Christine Ngoy</em></p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Photo 8 -->
-                    <div class="grid__item" data-size="960x640">
-                        <a href="images/original/8.jpg" class="img-wrap">
-                            <img src="images/thumbs/8.jpg" alt=""/>
-                            <div class="description description--grid">
-                                <h3>Titre de l'oeuvre</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda cupiditate
-                                    deleniti expedita illo nam neque odit, rerum saepe sit? Architecto aspernatur
-                                    commodi cupiditate dolorem est molestias neque, possimus quae.</p>
-                                <p><em>Christine Ngoy</em></p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Photo 9 -->
-                    <div class="grid__item" data-size="640x960">
-                        <a href="images/original/9.jpg" class="img-wrap">
-                            <img src="images/thumbs/9.jpg" alt=""/>
-                            <div class="description description--grid">
-                                <h3>Titre de l'oeuvre</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda cupiditate
-                                    deleniti expedita illo nam neque odit, rerum saepe sit? Architecto aspernatur
-                                    commodi cupiditate dolorem est molestias neque, possimus quae.</p>
-                                <p><em>Christine Ngoy</em></p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Photo 10 -->
-                    <div class="grid__item" data-size="640x960">
-                        <a href="images/original/10.jpg" class="img-wrap">
-                            <img src="images/thumbs/10.jpg" alt=""/>
-                            <div class="description description--grid">
-                                <h3>Titre de l'oeuvre</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda cupiditate
-                                    deleniti expedita illo nam neque odit, rerum saepe sit? Architecto aspernatur
-                                    commodi cupiditate dolorem est molestias neque, possimus quae.</p>
-                                <p><em>Christine Ngoy</em></p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Photo 11 -->
-                    <div class="grid__item" data-size="960x640">
-                        <a href="images/original/11.jpg" class="img-wrap">
-                            <img src="images/thumbs/11.jpg" alt=""/>
-                            <div class="description description--grid">
-                                <h3>Titre de l'oeuvre</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda cupiditate
-                                    deleniti expedita illo nam neque odit, rerum saepe sit? Architecto aspernatur
-                                    commodi cupiditate dolorem est molestias neque, possimus quae.</p>
-                                <p><em>Christine Ngoy</em></p>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Photo 12 -->
-                    <div class="grid__item" data-size="640x960">
-                        <a href="images/original/12.jpg" class="img-wrap">
-                            <img src="images/thumbs/12.jpg" alt=""/>
-                            <div class="description description--grid">
-                                <h3>Titre de l'oeuvre</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda cupiditate
-                                    deleniti expedita illo nam neque odit, rerum saepe sit? Architecto aspernatur
-                                    commodi cupiditate dolorem est molestias neque, possimus quae.</p>
-                                <p><em>Christine Ngoy</em></p>
-                            </div>
-                        </a>
-                    </div>
+
                 </div>
                 <!-- /grid -->
                 <div class="preview">
@@ -203,9 +48,7 @@ require_once('common/functions.php');
     ?>
 
     <script>
-        /**
-         * UL
-         */
+
         function display_categories($category_type) {
             $.getJSON("_controller.php", {function: "get_categories", parameters: [$category_type]},
                 function (data) { // data vaut result de la fonction sous forme d'array
@@ -244,10 +87,11 @@ require_once('common/functions.php');
                     // Pour chaque artwork trouvee on boucle
                     $('.grid').empty();
                     $.each(data, function (index, art_data) {
-                        $('.grid').append('<div id="' + art_data.id + '" class="grid__item" data-size="640x960"></div>');
+                        $('.grid').append('<div id="' + art_data.id + '" class="grid__item"></div>');
                         $(art_data.images).each(function(i,image_data){
                             if(image_data.image_type == 'original') {
                                 $('div#' + art_data.id).append('<a href="' + image_data.image_path + '" class="img-wrap"></a>');
+                                $('div#' + art_data.id).attr('data-size',image_data.data_size);
                             }
                         });
                         $(art_data.images).each(function(index,image_data){

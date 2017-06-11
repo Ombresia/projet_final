@@ -1,6 +1,8 @@
 <?php
 require_once 'database.php';
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+}
 class Authenticate
 {
     // Declaration des variables de l'objet Authenticate

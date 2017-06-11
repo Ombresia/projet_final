@@ -382,12 +382,12 @@
      *  Éditeur de texte Tiny MCE - Administration
      */
 
-   /* tinymce.init({
+   tinymce.init({
         selector: 'textarea#tiny',  // change this value according to your HTML
         auto_focus: 'element1',
         plugins: ['image imagetools'],
         language: 'fr_FR'
-    });*/
+    });
 
 
     /**
@@ -544,13 +544,6 @@ $(document).ready(function () {
         display_artworks_by_cat_id(id);
     });
 
-
-    /* $('li.trigger').on('click', function () {
-     console.log("entered clock event artworks");
-     var id = $this.attr('id');
-     display_artworks_by_cat_id($id);
-     });*/
-
     /**
      * Fonction Search
      */
@@ -580,6 +573,11 @@ $(document).ready(function () {
         } else {
             $('ul#search_results').empty();
         }
+    });
+
+    $('#search').on('focusout', function () {
+        $('#search').val('');
+        $('ul#search_results').empty();
     });
 
 
