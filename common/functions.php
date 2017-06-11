@@ -21,7 +21,7 @@ function register()
 function authentication($username, $password)
 {
     $authenticate = new Authenticate();
-    // Appel de la methode login de la classe Authenticate
+    // Appel de la methode login de la classe Authenticn
     $authenticate->login($username, $password);
     if (isset($_SESSION['ISLOGGED'])) {
         echo json_encode("authenticated");
@@ -34,6 +34,11 @@ function disconnect()
 {
     $authenticate = new Authenticate();
     $authenticate->logout();
+    if(isset($_SESSION['ISLOGGED'])){
+        echo json_encode("logout failed");
+    } else {
+        echo json_encode("logout successful");
+    }
 }
 
 /**

@@ -1,6 +1,6 @@
 <?php
 require_once 'database.php';
-
+session_start();
 class Authenticate
 {
     // Declaration des variables de l'objet Authenticate
@@ -75,7 +75,7 @@ class Authenticate
 
     private function createSessionAndCookies()
     {
-        session_start();
+        @session_start();
         $_SESSION['AUTH_ID'] = $this->id;
         $_SESSION['AUTH_USERNAME'] = $this->username;
         $_SESSION['ADMIN'] = $this->admin;
@@ -88,21 +88,21 @@ class Authenticate
     private function destroySessionAndCookies()
     {
 
-        /*unset($_SESSION['AUTH_ID']);
+        unset($_SESSION['AUTH_ID']);
         unset($_SESSION['AUTH_USERNAME']);
         unset($_SESSION['ADMIN']);
         unset($_SESSION['ISLOGGED']);
-
+        session_destroy();
         setcookie('AUTH_ID', '', time() - 3600);
-        setcookie('AUTH_USERNAME', '', time() - 3600);*/
+        setcookie('AUTH_USERNAME', '', time() - 3600);
 
 
-        session_regenerate_id(true); // assign a new session id and delete old data
+        /*session_regenerate_id(true); // assign a new session id and delete old data
         $_SESSION=array(); // empty session data
         session_write_close(); // superfluous call ;-)
 
         //header("Refresh: 1; location: administration_login.php");
-        exit();
+        exit();*/
     }
 
     function __destruct()

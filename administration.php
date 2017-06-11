@@ -2,15 +2,15 @@
 require_once('common/defines.php');
 require_once('common/functions.php');
 $page_name = 'admin';
-
-
-
-
-var_dump($_SESSION);
+if(!isset($_SESSION)){
+    session_start();
+}
 if (isset($_SESSION['ISLOGGED'])) {
     if (!$_SESSION['ADMIN'] == 'Y') {
         header('Location: administration_login.php');
     }
+} else {
+    header('Location: administration_login.php');
 }
 ?>
 <head>

@@ -382,12 +382,12 @@
      *  Éditeur de texte Tiny MCE - Administration
      */
 
-    tinymce.init({
+   /* tinymce.init({
         selector: 'textarea#tiny',  // change this value according to your HTML
         auto_focus: 'element1',
         plugins: ['image imagetools'],
         language: 'fr_FR'
-    });
+    });*/
 
 
     /**
@@ -617,8 +617,7 @@ $(document).ready(function () {
             },
             function (data) {
                 console.log(data);
-
-                //window.location.replace('administration_login.php');
+                window.location.replace('administration_login.php');
             }
         );
     });

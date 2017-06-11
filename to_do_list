@@ -4,6 +4,8 @@ TO DO LIST :
     - rédiger les meta descriptions
     - faire le shortcut icon
     - fonctionnalite de recherche dans les oeuvres
+        - pblm sortir de la recherche
+        - connecter la recherche au detail de l'oeuvre
     - Marquer la page active
 
 - Arrow top
@@ -19,7 +21,7 @@ TO DO LIST :
     - ajouter les descriptions
     - ajouter les dimensions
     - ajouter un bouton pour liker
-    -
+    - data-size = taille de l'img original -> dynamique
 
 - Administration :
     - ajouter un hover sur les balises a et button
@@ -32,19 +34,18 @@ TO DO LIST :
     -
 
 - Les pages :
-    - acceuil
-    - l'artiste
-    - la galerie
+    x acceuil
+    x l'artiste
+    x la galerie
     - le detail d'une oeuvre :
         - ajouter les favoris
     - le blog
     - le detail d'un article
-    - contact
+    x contact
 
 - SEO :
     - ajouter les microdonnees aux oeuvres
     - soigner les titres h1, h2, ...
     -
 
--
 -
