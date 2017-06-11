@@ -538,12 +538,6 @@
 $(document).ready(function () {
     console.log('DOM construit');
 
-    $(document).on('click', '#categories_artworks li', function () {
-        console.log("entered clock event artworks");
-        var id = $(this).attr('id');
-        display_artworks_by_cat_id(id);
-    });
-
     /**
      * Fonction Search
      */

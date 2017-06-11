@@ -235,14 +235,17 @@ class Artwork
             $this->category_id = $id;
 
             $this->db->set_charset("utf8");
-            $stmt = $this->db->prepare("SELECT ART.*, IMG.*
-                                    FROM ARTWORK ART,
-                                    CATEGORIES CAT,
-                                    IMAGES IMG
-                                    WHERE CAT.ID = ART.ID_CAT
-                                    AND IMG.FK_ID = ART.ID
-                                    AND IMG.IMAGE_TYPE = 'thumbs'
-                                    AND ART.ID_CAT = ?");
+            $stmt = $this->db->prepare("SELECT ART.*,
+                                                CAT.CAT_TITLE,
+                                                CAT.CAT_DESCRIPTION,
+                                                ARTIST.FIRSTNAME,
+                                                ARTIST.LASTNAME                          
+                                              FROM ARTWORK ART, 
+                                                             CATEGORIES CAT,
+                                                             ARTIST
+                                            WHERE CAT.ID = ART.ID_CAT
+                                            AND ART.ID_ARTIST = ARTIST.ID
+                                            AND ART.ID_CAT = ?");
             $stmt->bind_param('s', $this->category_id);
             $stmt->execute();
             $result = $stmt->get_result();

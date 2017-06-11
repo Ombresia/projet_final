@@ -52,6 +52,11 @@ require_once('common/functions.php');
         $(document).ready(function () {
             console.log('DOM construit');
 
+            $(document).on('click', '#categories_artworks li', function () {
+                var id = $(this).attr('id');
+                display_artworks_by_cat_id(id);
+            });
+
             function display_categories($category_type) {
                 $.getJSON("_controller.php", {function: "get_categories", parameters: [$category_type]},
                     function (data) { // data vaut result de la fonction sous forme d'array
@@ -66,22 +71,30 @@ require_once('common/functions.php');
             };
 
 
-            function display_artworks_by_cat_id($id) {
-                $.getJSON("_controller.php", {function: "get_artworks_by_cat_id", parameters: [$id]},
+            function display_artworks_by_cat_id(id) {
+                $.getJSON("_controller.php", {function: "get_artworks_by_cat_id", parameters: [id]},
                     function (data) { // data vaut result de la fonction sous forme d'array
-                        // Pour chaque artwork trouvee on boucle
                         $('.grid').empty();
                         $.each(data, function (index, art_data) {
-                            $('.grid').append('<div id="' + art_data.id + '" class="grid__item" data-size="640x960"></div>');
-                            $('div#' + art_data.id).append('<a href="' + art_data.image_path + '" class="img-wrap"></a>');
-                            $('div#' + art_data.id + ' a.img-wrap').append('<img src="' + art_data.image_path + '" alt="' + art_data.content_type + '"/>');
+                            $('.grid').append('<div id="' + art_data.id + '" class="grid__item"></div>');
+                            $(art_data.images).each(function (i, image_data) {
+                                if (image_data.image_type == 'original') {
+                                    $('div#' + art_data.id).append('<a href="' + image_data.image_path + '" class="img-wrap"></a>');
+                                    $('div#' + art_data.id).attr('data-size', image_data.data_size);
+                                }
+                            });
+                            $(art_data.images).each(function (index, image_data) {
+                                if (image_data.image_type == 'thumbs') {
+                                    $('div#' + art_data.id + ' a.img-wrap').append('<img src="' + image_data.image_path + '" alt="' + image_data.content_type + '"/>');
+                                }
+                            });
+
                             $('div#' + art_data.id + ' a.img-wrap').append('<div class="description description--grid"></div>');
                             $('div#' + art_data.id + ' div.description').append('<h3>' + art_data.art_title + '</h3>');
-                            $('div#' + art_data.id + ' div.description').append('<p>' + art_data.art_description + '</p>');
-
+                            $('div#' + art_data.id + ' div.description').append('<p>' + art_data.art_description + '</p><p><em>' + art_data.FIRSTNAME + ' ' + art_data.LASTNAME + '</em></p>');
                         });
-                        init_grid();
                     })
+                //init_grid();
             };
 
             function display_artworks() {
@@ -116,6 +129,7 @@ require_once('common/functions.php');
              */
             function init_grid() {
                 console.log('test');
+
                 var support = {transitions: Modernizr.csstransitions},
                     // transition end event name
                     transEndEventNames = {
@@ -179,14 +193,14 @@ require_once('common/functions.php');
                     }
                 })
 
-                GridFx.prototype._getWinSize = function () {
+               /* GridFx.prototype._getWinSize = function () {
                     return {
                         width: document.documentElement.clientWidth,
                         height: window.innerHeight
                     };
                 };
 
-                window.GridFx = GridFx;
+                window.GridFx = GridFx;*/
             }
 
             display_categories('artworks');

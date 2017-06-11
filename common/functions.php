@@ -117,7 +117,14 @@ function get_categories($category_type)
 function get_artworks_by_cat_id($category_id)
 {
     $artworks = new Artwork();
-    $result = $artworks->GetArtworkByCategoryId($category_id);
+    $images = new Images();
+    $result = array();
+    $artworks_result = $artworks->GetArtworkByCategoryId($category_id);
+    foreach ($artworks_result as $artwork) {
+        $images_result = $images->GetImage($artwork['id']);
+        $artwork['images'] = $images_result;
+        array_push($result, $artwork);
+    }
     print_r(json_encode($result));
 }
 
