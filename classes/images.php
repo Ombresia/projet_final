@@ -154,18 +154,12 @@ class Images
      * @return array|bool : return false if parameters not set or statement failed
      *                      return an array of result
      */
-    function GetImage($fkid, $content_type){
-        if (isset($fkid) && isset($content_type)){
+    function GetImage($fkid){
+        if (isset($fkid)){
             $this->fkid = $fkid;
-            $this->content_type = $content_type;
             $stmt = $this->db->prepare("SELECT * FROM IMAGES
-                                        WHERE FK_ID = ?
-                                        AND CONTENT_TYPE = ?");
-
-            $stmt->bind_param('is',
-                                $this->fkid,
-                                $this->content_type);
-
+                                        WHERE FK_ID = ?");
+            $stmt->bind_param('i',$this->fkid);
             $stmt->execute();
             $result = $stmt->get_result();
             $stmt->close();

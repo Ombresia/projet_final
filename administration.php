@@ -2,9 +2,16 @@
 require_once('common/defines.php');
 require_once('common/functions.php');
 $page_name = 'admin';
-// Authentication test : Si pas logged redirection vers page de login
-//session_destroy();
-authentication();
+
+
+
+
+var_dump($_SESSION);
+if (isset($_SESSION['ISLOGGED'])) {
+    if (!$_SESSION['ADMIN'] == 'Y') {
+        header('Location: administration_login.php');
+    }
+}
 ?>
 <head>
     <meta charset="UTF-8">
@@ -38,7 +45,7 @@ authentication();
         <p id="logo">Christine NGOY</p>
         <div>
             <!-- Connection -->
-            <button class="menu-btn"><i class="fa fa-user" aria-hidden="true"></i>Se connecter</button>
+            <button class="menu-btn" id="disconnect"><i class="fa fa-user" aria-hidden="true"></i>Se déconnecter</button>
             <!-- Alertes -->
             <button><i class="fa fa-bell" aria-hidden="true" class="icone"></i>Mes alertes</button>
         </div>

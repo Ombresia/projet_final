@@ -526,10 +526,10 @@
             console.log('Soumission reussie');
         }
     }
+
     $('#contact_submit').on('click', function () {
         valider_formulaire();
     });
-
 
 
 })(window);
@@ -538,49 +538,66 @@
 $(document).ready(function () {
     console.log('DOM construit');
 
-    $(document).on('click','#categories_artworks li',function () {
+    $(document).on('click', '#categories_artworks li', function () {
         console.log("entered clock event artworks");
         var id = $(this).attr('id');
         display_artworks_by_cat_id(id);
     });
 
 
-
-   /* $('li.trigger').on('click', function () {
-        console.log("entered clock event artworks");
-        var id = $this.attr('id');
-        display_artworks_by_cat_id($id);
-    });*/
+    /* $('li.trigger').on('click', function () {
+     console.log("entered clock event artworks");
+     var id = $this.attr('id');
+     display_artworks_by_cat_id($id);
+     });*/
 
     /**
      * Fonction Search
      */
-    $('#search_submit').on('click', function () {
-        $.post(
-            '_controller.php',
-            {
-                function: 'search',
-                parameters: [$('#search').val()]
-            },
-            function (data) {
-                console.log(data);
-            }
-        )
+    $('#search').on('keyup', function () {
+        if ($('#search').val().length > 3) {
+            $.getJSON(
+                '_controller.php',
+                {
+                    function: 'search',
+                    parameters: ['Everything', $('#search').val()]
+                },
+                function (data) {
+                    $('ul#search_results').empty();
+                    if (typeof (data) == 'object') {
+                        $.each(data, function (index, search_data) {
+                            $('ul#search_results').append('<li class="search_li" id="' + search_data.id + '">');
+                            $(search_data.images).each(function (index, image_data) {
+                                if (image_data.image_type === 'thumbs') {
+                                    $('li#' + search_data.id).append('<img src="' + image_data.image_path + '" alt="' + image_data.content_type + '"/>');
+                                }
+                            });
+                            $('li#' + search_data.id).append('<h3>' + search_data.art_title + '</h3>');
+                        });
+                    }
+                }
+            )
+        } else {
+            $('ul#search_results').empty();
+        }
     });
+
 
     /**
      * Fonction Login
      */
     $('#submit_login').on('click', function () {
-        var username=$('#username').val();
-        var password=$('#password').val();
-        $.get("_controller.php", {
-                function: "authentication",
-                parameters: [$username,$password]
+        var username = $('#username').val();
+        var password = $('#password').val();
+        $.getJSON(
+            '_controller.php',
+            {
+                function: 'authentication',
+                parameters: [username,password]
             },
             function (data) { // data vaut result de la fonction
                 console.log(data);
-                if (data) {
+                if (data === 'authenticated') {
                     window.location.replace('administration.php');
                 } else {
                     // jQuery du message d'erreur du login
@@ -589,5 +606,26 @@ $(document).ready(function () {
             }
         );
     });
-})
+
+    $('#disconnect').on('click', function () {
+
+        $.getJSON(
+            '_controller.php',
+            {
+                function: 'disconnect',
+                parameters: []
+            },
+            function (data) {
+                console.log(data);
+
+                //window.location.replace('administration_login.php');
+            }
+        );
+    });
+
+
+
+
+
+});
 

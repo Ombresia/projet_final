@@ -69,14 +69,13 @@ class Authenticate
                 echo 'successfully registered';
             }
         } else {
-            echo 'A user with this username already exists';
             $this->destroySessionAndCookies();
         }
     }
 
     private function createSessionAndCookies()
     {
-        @session_start();
+        session_start();
         $_SESSION['AUTH_ID'] = $this->id;
         $_SESSION['AUTH_USERNAME'] = $this->username;
         $_SESSION['ADMIN'] = $this->admin;
@@ -84,19 +83,26 @@ class Authenticate
         $expire = time() + 3600 * 24 * 30;
         setcookie('AUTH_ID', $this->id, $expire);
         setcookie('AUTH_USERNAME', $this->username, $expire);
-        echo 'session and cookie created';
     }
 
     private function destroySessionAndCookies()
     {
-        unset($_SESSION['AUTH_ID']);
+
+        /*unset($_SESSION['AUTH_ID']);
         unset($_SESSION['AUTH_USERNAME']);
         unset($_SESSION['ADMIN']);
         unset($_SESSION['ISLOGGED']);
-        session_destroy();
+
         setcookie('AUTH_ID', '', time() - 3600);
-        setcookie('AUTH_USERNAME', '', time() - 3600);
-        echo 'session and cookie destroyed';
+        setcookie('AUTH_USERNAME', '', time() - 3600);*/
+
+
+        session_regenerate_id(true); // assign a new session id and delete old data
+        $_SESSION=array(); // empty session data
+        session_write_close(); // superfluous call ;-)
+
+        //header("Refresh: 1; location: administration_login.php");
+        exit();
     }
 
     function __destruct()

@@ -19,10 +19,10 @@ class Search {
 	 * @return The result of the articles matching the search filter
 	 */
     public function Articles($filter) {
-
-    	$stmt = $this->db->prepare("SELECT title,body,created 
+        $this->db->set_charset("utf8");
+    	$stmt = $this->db->prepare("SELECT id,title,body,created 
     								FROM articles 
-    								WHERE MATCH(title,body) AGAINST(? IN NATURAL LANGUAGUE MODE)");
+    								WHERE MATCH(title,body) AGAINST(? IN BOOLEAN MODE)");
 		$stmt->bind_param('s', $filter);		
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -30,11 +30,13 @@ class Search {
 		if(!$result) {
 			return false;
 		}
-		while ($row = $result -> fetch_assoc()) {
-			$rows[] = $row;
-		}
-		return $rows;
-
+        if(!$result->num_rows == 0){
+            while ($row = $result -> fetch_assoc()) {
+                $rows[] = $row;
+            }
+            return $rows;
+        }
+        return "no_result";
     }
 
 	/**
@@ -44,10 +46,10 @@ class Search {
 	 * @return array|bool : The result of the artworks matching the search filter
 	 */
     public function Artworks($filter) {
-
-    	$stmt = $this->db->prepare("SELECT art_title,art_description,date_created 
+        $this->db->set_charset("utf8");
+    	$stmt = $this->db->prepare("SELECT id,art_title,art_description,date_created 
     								FROM artwork 
-    								WHERE MATCH(art_title,art_description) AGAINST(? IN NATURAL LANGUAGUE MODE)");
+    								WHERE MATCH(art_title,art_description) AGAINST(? IN BOOLEAN MODE)");
 		$stmt->bind_param('s', $filter);		
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -55,11 +57,13 @@ class Search {
 		if(!$result) {
 			return false;
 		}
-		while ($row = $result -> fetch_assoc()) {
-			$rows[] = $row;
+		if(!$result->num_rows == 0){
+            while ($row = $result -> fetch_assoc()) {
+                $rows[] = $row;
+            }
+            return $rows;
 		}
-		return $rows;
-
+        return "no_result";
 	}
 
 
@@ -71,13 +75,14 @@ class Search {
 	 */
     public function Everything($filter) {
 
-    	$stmt = $this->db->prepare("SELECT title,body,created 
+        $this->db->set_charset("utf8");
+    	$stmt = $this->db->prepare("SELECT id,art_title,art_description,date_created 
     								FROM artwork 
-    								WHERE MATCH(art_title,art_description) AGAINST(? IN NATURAL LANGUAGUE MODE)
+    								WHERE MATCH(art_title,art_description) AGAINST(? IN BOOLEAN MODE)
     								UNION 
-    								SELECT title,body,created 
+    								SELECT id,title,body,created 
     								FROM articles 
-    								WHERE MATCH(title,body) AGAINST(? IN NATURAL LANGUAGUE MODE)");
+    								WHERE MATCH(title,body) AGAINST(? IN BOOLEAN MODE)");
 		$stmt->bind_param('ss', $filter, $filter);		
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -85,10 +90,13 @@ class Search {
 		if($result === false) {
 			return false;
 		}
-		while ($row = $result -> fetch_assoc()) {
-			$rows[] = $row;
-		}
-		return $rows;
+        if(!$result->num_rows == 0){
+            while ($row = $result -> fetch_assoc()) {
+                $rows[] = $row;
+            }
+            return $rows;
+        }
+        return [];
 
 	}
 

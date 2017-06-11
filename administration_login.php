@@ -46,13 +46,11 @@ require_once ('common/functions.php');
             <p>Veuillez vous connecter à votre compte.</p>
 
             <!-- Connection -->
-            <form method="post">
                 <label for="username">Nom d'utilisateur :</label>
                 <input type="text" id="username" name="username"/>
                 <label for="password">Mot de passe :</label>
                 <input type="password" id="password" name="password"/>
                 <button id="submit_login">Se connecter</button>
-            </form>
         </section>
     </div>
     <?php
