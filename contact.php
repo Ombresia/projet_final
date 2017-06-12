@@ -9,34 +9,34 @@ $validation = array(
     'firstname' => array(
         'value' => '',
         'is_valid' => false,
-        'err_msg' => 'Le prénom doit au moins contenir 1 caractère valide.',
+        'error_msg' => 'Le prénom doit au moins contenir 1 caractère valide.',
     ),
     'lastname' => array(
         'value' => '',
         'is_valid' => false,
-        'err_msg' => 'Le nom doit au moins contenir 1 caractère valide.',
+        'error_msg' => 'Le nom doit au moins contenir 1 caractère valide.',
     ),
     'phone' => array(
         'value' => '',
         'is_valid' => false,
-        'err_msg' => 'Le numéro de téléphone n\'est pas valide (ex. 555-000-0000).',
+        'error_msg' => 'Le numéro de téléphone n\'est pas valide (ex. 555-000-0000).',
         'regex' => '/^(\d[\s-]?)?[\(\[\s-]{0,2}?\d{3}[\)\]\s-]{0,2}?\d{3}[\s-]?\d{4}$/i',
     ),
     'email' => array(
         'value' => '',
         'is_valid' => false,
-        'err_msg' => 'L\'adresse courriel n\'est pas valide (ex. exemple@gmail.com).',
+        'error_msg' => 'L\'adresse courriel n\'est pas valide (ex. exemple@gmail.com).',
         'regex' => '/^(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){255,})(?!(?:(?:\\x22?\\x5C[\\x00-\\x7E]\\x22?)|(?:\\x22?[^\\x5C\\x22]\\x22?)){65,}@)(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22))(?:\\.(?:(?:[\\x21\\x23-\\x27\\x2A\\x2B\\x2D\\x2F-\\x39\\x3D\\x3F\\x5E-\\x7E]+)|(?:\\x22(?:[\\x01-\\x08\\x0B\\x0C\\x0E-\\x1F\\x21\\x23-\\x5B\\x5D-\\x7F]|(?:\\x5C[\\x00-\\x7F]))*\\x22)))*@(?:(?:(?!.*[^.]{64,})(?:(?:(?:xn--)?[a-z0-9]+(?:-+[a-z0-9]+)*\\.){1,126}){1,}(?:(?:[a-z][a-z0-9]*)|(?:(?:xn--)[a-z0-9]+))(?:-+[a-z0-9]+)*)|(?:\\[(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){7})|(?:(?!(?:.*[a-f0-9][:\\]]){7,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,5})?)))|(?:(?:IPv6:(?:(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){5}:)|(?:(?!(?:.*[a-f0-9]:){5,})(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3})?::(?:[a-f0-9]{1,4}(?::[a-f0-9]{1,4}){0,3}:)?)))?(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))(?:\\.(?:(?:25[0-5])|(?:2[0-4][0-9])|(?:1[0-9]{2})|(?:[1-9]?[0-9]))){3}))\\]))$/iD',
     ),
     'subject' => array(
         'value' => '',
         'is_valid' => false,
-        'err_msg' => 'Le sujet du message doit au moins contenir 1 caractère valide.',
+        'error_msg' => 'Le sujet du message doit au moins contenir 1 caractère valide.',
     ),
     'message' => array(
         'value' => '',
         'is_valid' => false,
-        'err_msg' => 'Le message doit au moins contenir 1 caractère valide.',
+        'error_msg' => 'Le message doit au moins contenir 1 caractère valide.',
     )
 );
 
@@ -94,7 +94,7 @@ if ($en_reception) {
 
     <!-- Page du formulaire de contact -->
     <body id="top">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2794.302556627608!2d-73.64289478465318!3d45.544238836120506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc918e0c061b07f%3A0x647a6b6d7cb681a7!2sISI%2C+l&#39;Institut+sup%C3%A9rieur+d&#39;informatique!5e0!3m2!1sfr!2sca!4v1496847016449"
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d178187.8403085168!2d-73.80690718520306!3d45.747436906204136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc8dc711510e05f%3A0xf97eef202e671f32!2sTerrebonne%2C+QC!5e0!3m2!1sfr!2sca!4v1497240775525"
             width="100%" height="350" frameborder="0" style="border:0" allowfullscreen class="googlemap"></iframe>
     <main class="row contact">
 
@@ -122,7 +122,7 @@ if ($en_reception) {
                     </span>
                     <?php
                     if ($en_reception && !$validation['firstname']['is_valid']) {
-                        echo '<p class="err_msg">' . $validation['firstname']['err_msg'].'</p>';
+                        echo '<p class="error_msg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>' . $validation['firstname']['error_msg'].'</p>';
                     }
                     ?>
 
@@ -140,7 +140,7 @@ if ($en_reception) {
                     </span>
                     <?php
                     if ($en_reception && !$validation['lastname']['is_valid']) {
-                        echo '<p class="err_msg">' . $validation['lastname']['err_msg'].'</p>';
+                        echo '<p class="error_msg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>' . $validation['lastname']['error_msg'].'</p>';
                     }
                     ?>
 
@@ -157,7 +157,7 @@ if ($en_reception) {
                     </span>
                     <?php
                     if ($en_reception && !$validation['phone']['is_valid']) {
-                        echo '<p class="err_msg">' . $validation['phone']['err_msg'].'</p>';
+                        echo '<p class="error_msg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>' . $validation['phone']['error_msg'].'</p>';
                     }
                     ?>
 
@@ -175,7 +175,7 @@ if ($en_reception) {
                     </span>
                     <?php
                     if ($en_reception && !$validation['email']['is_valid']) {
-                        echo '<p class="err_msg">' . $validation['email']['err_msg'].'</p>';
+                        echo '<p class="error_msg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>' . $validation['email']['error_msg'].'</p>';
                     }
                     ?>
 
@@ -193,12 +193,12 @@ if ($en_reception) {
                     </span>
                     <?php
                     if ($en_reception && !$validation['subject']['is_valid']) {
-                        echo '<p class="err_msg">' . $validation['subject']['err_msg'].'</p>';
+                        echo '<p class="error_msg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>' . $validation['subject']['error_msg'].'</p>';
                     }
                     ?>
 
                     <!-- Message -->
-                    <li>
+                    <li class="input input--manami">
                         <label for="message" class="message">Message (*)</label>
 
                     </li>
@@ -207,7 +207,7 @@ if ($en_reception) {
                     </li>
                     <?php
                     if ($en_reception && !$validation['message']['is_valid']) {
-                        echo '<p class="err_msg">' . $validation['message']['err_msg'].'</p>';
+                        echo '<p class="error_msg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>' . $validation['message']['error_msg'].'</p>';
                     }
                     ?>
 
@@ -221,10 +221,10 @@ if ($en_reception) {
     </main>
 
     <?php
-    // Inclusion des scripts js
-    require_once('views/js_scripts.php');
     // Inclusion du arrow_top
     require_once ('views/arrow.php');
+    // Inclusion des scripts js
+    require_once('views/js_scripts.php');
     ?>
 
     </body>

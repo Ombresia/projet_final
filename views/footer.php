@@ -42,7 +42,9 @@
     </div>
     <div id="mentions_legales" class="col-3">
         <h4>Mentions légales</h4>
-        <p>Copyright 2017</p></div>
+        <p>&copy; 2017 - Elorri Detcheverry & Virginie Cuzin</p>
+        <p>Ce site a été réalisé dans le cadre du projet de fin d'étude</p>
+    </div>
 
     <div id="contact" class="col-3">
         <h4>Contact</h4>

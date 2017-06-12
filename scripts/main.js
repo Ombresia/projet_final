@@ -408,7 +408,7 @@
             form_valid = false;
             input_firstname.addClass('error');
             if (!input_firstname.parent().next('span').next().is('p.error_msg')) {
-                input_firstname.parent().next('span').after('<p class="error_msg">Le prénom doit au moins contenir 1 caractère valide.</p>');
+                input_firstname.parent().next('span').after('<p class="error_msg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Le prénom doit au moins contenir 1 caractère valide.</p>');
             }
         } else {
             input_firstname.removeClass('error');
@@ -427,7 +427,7 @@
             form_valid = false;
             input_lastname.addClass('error');
             if (!input_lastname.parent().next('span').next().is('p.error_msg')) {
-                input_lastname.parent().next('span').after('<p class="error_msg">Le nom doit au moins contenir 1 caractère valide.</p>');
+                input_lastname.parent().next('span').after('<p class="error_msg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Le nom doit au moins contenir 1 caractère valide.</p>');
             }
         } else {
             input_lastname.removeClass('error');
@@ -448,7 +448,7 @@
             form_valid = false;
             input_phone.addClass('error');
             if (!input_phone.parent().next('span').next().is('p.error_msg')) {
-                input_phone.parent().next('span').after('<p class="error_msg">Le telephone doit etre au format XXX-XXX-XXXX.</p>');
+                input_phone.parent().next('span').after('<p class="error_msg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Le telephone doit etre au format XXX-XXX-XXXX.</p>');
             }
         } else {
             input_phone.removeClass('error');
@@ -469,7 +469,7 @@
             form_valid = false;
             input_email.addClass('error');
             if (!input_email.parent().next('span').next().is('p.error_msg')) {
-                input_email.parent().next('span').after('<p class="error_msg">Le courriel doit au moins contenir le caractere @.</p>');
+                input_email.parent().next('span').after('<p class="error_msg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Le courriel doit au moins contenir le caractere @.</p>');
             }
         } else {
             input_email.removeClass('error');
@@ -489,7 +489,7 @@
             form_valid = false;
             input_subject.addClass('error');
             if (!input_subject.parent().next('span').next().is('p.error_msg')) {
-                input_subject.parent().next('span').after('<p class="error_msg">Le sujet doit au moins contenir 1 caractere valide.</p>');
+                input_subject.parent().next('span').after('<p class="error_msg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Le sujet doit au moins contenir 1 caractere valide.</p>');
             }
         } else {
             input_subject.removeClass('error');
@@ -508,7 +508,7 @@
             form_valid = false;
             textarea_message.addClass('error');
             if (!textarea_message.parent().next().is('p.error_msg')) {
-                textarea_message.parent().after('<p class="error_msg">Le message doit au moins contenir 1 caractere valide.</p>');
+                textarea_message.parent().after('<p class="error_msg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Le message doit au moins contenir 1 caractere valide.</p>');
             }
         } else {
             textarea_message.removeClass('error');
@@ -521,7 +521,11 @@
         // Si le formulaire n'est pas valide, on intercepte la soumission
         if (!form_valid) {
             console.log('Soumission interrompue');
-            event.preventDefault();
+            if (e.defaultPrevented) {
+                /* Le comportement par défaut a été inhibé */
+            }
+            //event.preventDefault();
+
         } else {
             console.log('Soumission reussie');
         }
@@ -537,6 +541,11 @@
 
 $(document).ready(function () {
     console.log('DOM construit');
+
+    $('.ico_color_fav').on('click', function () {
+        $('#favoris_results').css('display','block');
+    });
+
 
     /**
      * Fonction Search

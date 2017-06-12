@@ -39,8 +39,12 @@ require_once('common/defines.php');
     ?>
 
     <!-- Logo -->
-    <div id="logo"><p>Christine Ngoy</p>
-        <p>Artiste peintre sur vitre</p></div>
+    <div id="logo">
+        <a href="index.php">
+            <p>Christine Ngoy</p>
+            <p>Artiste peintre sur vitre</p>
+        </a>
+    </div>
     <!-- Navigation principale -->
     <nav id="menu_normal">
         <ul>

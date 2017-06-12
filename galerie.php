@@ -11,9 +11,9 @@ require_once('common/functions.php');
     <!-- Page de la galerie -->
 
     <main class="row">
-        <section class="col-12 col-m-12 col-s-12">
+        <section class="col-12 col-m-12 col-s-12 galerie">
             <div class="titre_main">
-                <h2>La galerie</h2>
+                <h2>Mes oeuvres</h2>
             </div>
 
             <section class="col-12 col-m-12 col-s-12">
@@ -41,10 +41,10 @@ require_once('common/functions.php');
     </main>
 
     <?php
+    // Inclusion du arrow
+    require_once('views/arrow.php');
     // Inclusion des scripts js
     require_once('views/js_scripts.php');
-    // Inclusion du arrow_top
-    require_once('views/arrow.php');
     ?>
 
     <script>
@@ -76,25 +76,33 @@ require_once('common/functions.php');
                     function (data) { // data vaut result de la fonction sous forme d'array
                         $('.grid').empty();
                         $.each(data, function (index, art_data) {
-                            $('.grid').append('<div id="' + art_data.id + '" class="grid__item"></div>');
-                            $(art_data.images).each(function (i, image_data) {
-                                if (image_data.image_type == 'original') {
-                                    $('div#' + art_data.id).append('<a href="' + image_data.image_path + '" class="img-wrap"></a>');
-                                    $('div#' + art_data.id).attr('data-size', image_data.data_size);
-                                }
-                            });
-                            $(art_data.images).each(function (index, image_data) {
-                                if (image_data.image_type == 'thumbs') {
-                                    $('div#' + art_data.id + ' a.img-wrap').append('<img src="' + image_data.image_path + '" alt="' + image_data.content_type + '"/>');
-                                }
-                            });
+                                var original_image_path = '';
+                                var original_image_size = '';
+                                var image_content_type = '';
 
-                            $('div#' + art_data.id + ' a.img-wrap').append('<div class="description description--grid"></div>');
-                            $('div#' + art_data.id + ' div.description').append('<h3>' + art_data.art_title + '</h3>');
-                            $('div#' + art_data.id + ' div.description').append('<p>' + art_data.art_description + '</p><p><em>' + art_data.FIRSTNAME + ' ' + art_data.LASTNAME + '</em></p>');
-                        });
+                                $(art_data.images).each(function (i, image_data) {
+                                    if (image_data.image_type == 'original') {
+                                        original_image_path = image_data.image_path;
+                                        original_image_size = image_data.data_size;
+                                        image_content_type = image_data.content_type;
+                                    } else {
+                                        thumbs_image_path = image_data.image_path;
+                                    }
+                                });
+                                var final_div = '<div id="' + index + '" data-size="' + original_image_size + '" class="grid__item">'
+                                final_div += '<a href="' + original_image_path + '" class="img-wrap">';
+                                final_div += '<img src="' + thumbs_image_path + '" alt="' + image_content_type + '"/>';
+                                final_div += '<div class="description description--grid">';
+                                final_div += '<h3>' + art_data.art_title + '</h3>';
+                                final_div += '<p>' + art_data.art_description + '</p><p><em>' + art_data.FIRSTNAME + ' ' + art_data.LASTNAME + '</em></p>';
+                                final_div += '</div>';
+                                final_div += '</a>';
+                                final_div += '</div>';
+                                $('.grid').append(final_div);
+                            }
+                        );
+                        init_grid();
                     })
-                //init_grid();
             };
 
             function display_artworks() {
@@ -103,26 +111,35 @@ require_once('common/functions.php');
                         // Pour chaque artwork trouvee on boucle
                         $('.grid').empty();
                         $.each(data, function (index, art_data) {
-                            $('.grid').append('<div id="' + art_data.id + '" class="grid__item"></div>');
-                            $(art_data.images).each(function (i, image_data) {
-                                if (image_data.image_type == 'original') {
-                                    $('div#' + art_data.id).append('<a href="' + image_data.image_path + '" class="img-wrap"></a>');
-                                    $('div#' + art_data.id).attr('data-size', image_data.data_size);
-                                }
-                            });
-                            $(art_data.images).each(function (index, image_data) {
-                                if (image_data.image_type == 'thumbs') {
-                                    $('div#' + art_data.id + ' a.img-wrap').append('<img src="' + image_data.image_path + '" alt="' + image_data.content_type + '"/>');
-                                }
-                            });
+                                var original_image_path = '';
+                                var original_image_size = '';
+                                var image_content_type = '';
 
-                            $('div#' + art_data.id + ' a.img-wrap').append('<div class="description description--grid"></div>');
-                            $('div#' + art_data.id + ' div.description').append('<h3>' + art_data.art_title + '</h3>');
-                            $('div#' + art_data.id + ' div.description').append('<p>' + art_data.art_description + '</p><p><em>' + art_data.FIRSTNAME + ' ' + art_data.LASTNAME + '</em></p>');
-                        });
+                                $(art_data.images).each(function (i, image_data) {
+                                    if (image_data.image_type == 'original') {
+                                        original_image_path = image_data.image_path;
+                                        original_image_size = image_data.data_size;
+                                        image_content_type = image_data.content_type;
+                                    } else {
+                                        thumbs_image_path = image_data.image_path;
+                                    }
+                                });
+                                var final_div = '<div id="' + index + '" data-size="' + original_image_size + '" class="grid__item">'
+                                final_div += '<a href="' + original_image_path + '" class="img-wrap">';
+                                final_div += '<img src="' + thumbs_image_path + '" alt="' + image_content_type + '"/>';
+                                final_div += '<div class="description description--grid">';
+                                final_div += '<h3>' + art_data.art_title + '</h3>';
+                                final_div += '<p>' + art_data.art_description + '</p><p><em>' + art_data.FIRSTNAME + ' ' + art_data.LASTNAME + '</em></p>';
+                                final_div += '</div>';
+                                final_div += '</a>';
+                                final_div += '</div>';
+                                $('.grid').append(final_div);
+                            }
+                        );
                         init_grid();
                     })
-            };
+            }
+            ;
 
             /**
              * fonction d'initialisation de la grille
@@ -193,19 +210,20 @@ require_once('common/functions.php');
                     }
                 })
 
-               /* GridFx.prototype._getWinSize = function () {
-                    return {
-                        width: document.documentElement.clientWidth,
-                        height: window.innerHeight
-                    };
-                };
+                /* GridFx.prototype._getWinSize = function () {
+                 return {
+                 width: document.documentElement.clientWidth,
+                 height: window.innerHeight
+                 };
+                 };
 
-                window.GridFx = GridFx;*/
+                 window.GridFx = GridFx;*/
             }
 
             display_categories('artworks');
             display_artworks();
-        });
+        })
+        ;
     </script>
     </body>
 

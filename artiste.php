@@ -41,7 +41,7 @@ require_once('views/page_top.php');
             </article>
 
             <div class="titre_main">
-                <h2>Visiter mon atelier</h2>
+                <h2>Visitez mon atelier</h2>
 
                 <figure class="col-5 col-m-4 col-s-12"><img src="images/thumbs/atelier1.jpg"></figure>
 
@@ -56,10 +56,6 @@ require_once('views/page_top.php');
                     elit. Alias at blanditiis commodi dolores eum expedita facilis fuga, harum hic illum in iure iusto
                     libero maxime mollitia placeat provident sequi voluptatibus.</p>
 
-
-                <video controls src="video.ogv" class="col-12 col-m-12 col-s-12">Ici la description alternative</video>
-
-
             </div>
 
             <article>
@@ -71,11 +67,13 @@ require_once('views/page_top.php');
         <?php
         // Inclusion des scripts JS
         require_once ('views/js_scripts.php');
-        // Inclusion du arrow_top
-        require_once ('views/arrow.php');
         ?>
 
     </main>
+    <?php
+    // Inclusion du arrow
+    require_once ('views/arrow.php')
+    ?>
     </body>
 
 <?php

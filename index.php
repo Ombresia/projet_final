@@ -20,7 +20,7 @@ require_once('views/page_top.php');
                 <div class="inner">
                     <div class="photo">
                         <h3>Titre</h3>
-                        <img src="images/thumbs/slider1.jpg" alt=""/>
+                        <img src="images/thumbs/slider3.jpg" alt=""/>
                     </div>
                     <div class="photo">
                         <h3>Titre</h3>
@@ -28,7 +28,7 @@ require_once('views/page_top.php');
                     </div>
                     <div class="photo">
                         <h3>Titre</h3>
-                        <img src="images/thumbs/slider3.jpg" alt=""/>
+                        <img src="images/thumbs/slider1.jpg" alt=""/>
                     </div>
                 </div>
                 <!-- Fin du inner -->
@@ -52,7 +52,7 @@ require_once('views/page_top.php');
             </div>
 
             <article>
-                <div class="event_lieu"><h3>Galerie machin-truc</h3> <span>00/00/0000</span></div>
+                <div class="event_lieu"><h3>Galerie Du Lac</h3> <span>22/08/2017</span></div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dignissimos libero natus nemo nisi
                     officia quo rerum vero? Fuga nemo nobis soluta unde ut! Consequuntur earum est mollitia quos
                     repellat! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi assumenda,
@@ -61,7 +61,7 @@ require_once('views/page_top.php');
             </article>
 
             <article>
-                <div class="event_lieu"><h3>Galerie machin-truc</h3> <span>00/00/0000</span></div>
+                <div class="event_lieu"><h3>Galerie Lafayette </h3> <span>16/10/2017</span></div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam dignissimos libero natus nemo nisi
                     officia quo rerum vero? Fuga nemo nobis soluta unde ut! Consequuntur earum est mollitia quos
                     repellat!</p>
@@ -72,37 +72,43 @@ require_once('views/page_top.php');
                 <h2>Mes dernières oeuvres</h2>
             </div>
 
-            <figure class="col-2 col-m-4 col-s-12">
-                <img src="images/thumbs/5.jpg" alt="">
-                <h3>Titre de l'oeuvre</h3>
-            </figure>
+            <section id="derniere_oeuvres">
 
-            <figure class="col-2 col-m-4 col-s-12">
-                <img src="images/thumbs/2.jpg" alt="">
-                <h3>Titre de l'oeuvre</h3>
-            </figure>
+                <figure>
+                    <img src="images/thumbs/12.jpg" alt="">
+                    <h3>Titre de l'oeuvre</h3>
+                </figure>
 
-            <figure class="col-2 col-m-4 col-s-12">
-                <img src="images/thumbs/3.jpg" alt="">
-                <h3>Titre de l'oeuvre</h3>
-            </figure>
+                <figure>
+                    <img src="images/thumbs/2.jpg" alt="">
+                    <h3>Titre de l'oeuvre</h3>
+                </figure>
 
-            <figure class="col-2 col-m-4 col-s-12">
-                <img src="images/thumbs/4.jpg" alt="">
-                <h3>Titre de l'oeuvre</h3>
-            </figure>
+                <figure>
+                    <img src="images/thumbs/3.jpg" alt="">
+                    <h3>Titre de l'oeuvre</h3>
+                </figure>
+
+                <figure>
+                    <img src="images/thumbs/4.jpg" alt="">
+                    <h3>Titre de l'oeuvre</h3>
+                </figure>
+
+            </section>
 
 
         </section>
 
         <?php
         // Inclusion des scripts JS
-        require_once ('views/js_scripts.php');
-        // Inclusion du arrow_top
-        require_once ('views/arrow.php');
+        require_once('views/js_scripts.php');
         ?>
 
     </main>
+    <?php
+    // Inclusion du arrow
+    require_once ('views/arrow.php')
+    ?>
     </body>
 
 <?php
